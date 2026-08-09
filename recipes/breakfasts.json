@@ -1,0 +1,225 @@
+[
+  {
+    "name": "Porridge with blueberries",
+    "ingredients": [
+      {
+        "name": "Porridge oats",
+        "quantity": 40,
+        "unit": "g"
+      },
+      {
+        "name": "Semi-skimmed milk",
+        "quantity": 150,
+        "unit": "ml"
+      },
+      {
+        "name": "Blueberries",
+        "quantity": 40,
+        "unit": "g"
+      },
+      {
+        "name": "Honey",
+        "quantity": 5,
+        "unit": "g"
+      }
+    ],
+    "steps": [
+      "Simmer oats and milk together for 4-5 minutes, stirring often, until thick and creamy.",
+      "Spoon into bowls and top with blueberries.",
+      "Drizzle with honey to serve."
+    ]
+  },
+  {
+    "name": "Scrambled eggs on wholemeal toast",
+    "ingredients": [
+      {
+        "name": "Free-range eggs",
+        "quantity": 1.5,
+        "unit": "unit"
+      },
+      {
+        "name": "Wholemeal bread",
+        "quantity": 1,
+        "unit": "unit"
+      },
+      {
+        "name": "Butter",
+        "quantity": 5,
+        "unit": "g"
+      },
+      {
+        "name": "Cherry tomatoes",
+        "quantity": 40,
+        "unit": "g"
+      }
+    ],
+    "steps": [
+      "Whisk the eggs with a splash of milk.",
+      "Melt butter in a non-stick pan over low heat and add the eggs, stirring gently until just set.",
+      "Toast the bread and serve the eggs on top with halved cherry tomatoes on the side."
+    ]
+  },
+  {
+    "name": "Greek yogurt with granola and fruit",
+    "ingredients": [
+      {
+        "name": "Greek yogurt",
+        "quantity": 120,
+        "unit": "g"
+      },
+      {
+        "name": "Granola",
+        "quantity": 30,
+        "unit": "g"
+      },
+      {
+        "name": "Banana",
+        "quantity": 0.5,
+        "unit": "unit"
+      }
+    ],
+    "steps": [
+      "Spoon yogurt into a bowl.",
+      "Slice the banana and scatter over with the granola."
+    ]
+  },
+  {
+    "name": "Overnight oats with berries",
+    "ingredients": [
+      {
+        "name": "Porridge oats",
+        "quantity": 40,
+        "unit": "g"
+      },
+      {
+        "name": "Semi-skimmed milk",
+        "quantity": 120,
+        "unit": "ml"
+      },
+      {
+        "name": "Mixed berries",
+        "quantity": 40,
+        "unit": "g"
+      },
+      {
+        "name": "Greek yogurt",
+        "quantity": 40,
+        "unit": "g"
+      }
+    ],
+    "steps": [
+      "The night before, stir oats, milk and yogurt together in a jar or container.",
+      "Cover and refrigerate overnight.",
+      "Top with mixed berries in the morning before serving."
+    ]
+  },
+  {
+    "name": "Wholemeal pancakes with banana",
+    "ingredients": [
+      {
+        "name": "Wholemeal flour",
+        "quantity": 40,
+        "unit": "g"
+      },
+      {
+        "name": "Free-range eggs",
+        "quantity": 0.5,
+        "unit": "unit"
+      },
+      {
+        "name": "Semi-skimmed milk",
+        "quantity": 80,
+        "unit": "ml"
+      },
+      {
+        "name": "Banana",
+        "quantity": 0.5,
+        "unit": "unit"
+      }
+    ],
+    "steps": [
+      "Whisk flour, egg and milk together into a smooth batter.",
+      "Pour small rounds into a lightly greased hot pan and cook 1-2 minutes per side until golden.",
+      "Serve topped with sliced banana."
+    ]
+  },
+  {
+    "name": "Avocado and poached egg on toast",
+    "ingredients": [
+      {
+        "name": "Wholemeal bread",
+        "quantity": 1,
+        "unit": "unit"
+      },
+      {
+        "name": "Avocado",
+        "quantity": 0.5,
+        "unit": "unit"
+      },
+      {
+        "name": "Free-range eggs",
+        "quantity": 1,
+        "unit": "unit"
+      }
+    ],
+    "steps": [
+      "Toast the bread and mash the avocado on top with a little salt and pepper.",
+      "Simmer water in a pan, swirl, and crack in the egg; poach 3 minutes until white is set.",
+      "Lift out with a slotted spoon and place on the avocado toast."
+    ]
+  },
+  {
+    "name": "Fruit and seed muesli with milk",
+    "ingredients": [
+      {
+        "name": "Muesli",
+        "quantity": 40,
+        "unit": "g"
+      },
+      {
+        "name": "Semi-skimmed milk",
+        "quantity": 150,
+        "unit": "ml"
+      },
+      {
+        "name": "Apple",
+        "quantity": 0.5,
+        "unit": "unit"
+      }
+    ],
+    "steps": [
+      "Pour muesli into a bowl and add the milk.",
+      "Grate or dice the apple and stir through before serving."
+    ]
+  },
+  {
+    "name": "French toast with berries",
+    "ingredients": [
+      {
+        "name": "Wholemeal bread",
+        "quantity": 1,
+        "unit": "unit"
+      },
+      {
+        "name": "Free-range eggs",
+        "quantity": 0.5,
+        "unit": "unit"
+      },
+      {
+        "name": "Semi-skimmed milk",
+        "quantity": 30,
+        "unit": "ml"
+      },
+      {
+        "name": "Mixed berries",
+        "quantity": 40,
+        "unit": "g"
+      }
+    ],
+    "steps": [
+      "Whisk egg and milk together in a shallow dish.",
+      "Dip the bread in the mixture, coating both sides.",
+      "Fry in a lightly greased pan for 2 minutes per side until golden, then top with berries."
+    ]
+  }
+]

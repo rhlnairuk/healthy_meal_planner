@@ -1,0 +1,142 @@
+[
+  {
+    "name": "Apple slices with almond butter",
+    "ingredients": [
+      {
+        "name": "Apple",
+        "quantity": 1,
+        "unit": "unit"
+      },
+      {
+        "name": "Almond butter",
+        "quantity": 10,
+        "unit": "g"
+      }
+    ],
+    "steps": [
+      "Slice the apple and serve with almond butter for dipping."
+    ]
+  },
+  {
+    "name": "Carrot sticks with hummus",
+    "ingredients": [
+      {
+        "name": "Carrots",
+        "quantity": 50,
+        "unit": "g"
+      },
+      {
+        "name": "Hummus",
+        "quantity": 30,
+        "unit": "g"
+      }
+    ],
+    "steps": [
+      "Cut the carrots into sticks and serve with hummus for dipping."
+    ]
+  },
+  {
+    "name": "Greek yogurt pot",
+    "ingredients": [
+      {
+        "name": "Greek yogurt",
+        "quantity": 100,
+        "unit": "g"
+      }
+    ],
+    "steps": [
+      "Spoon yogurt into a pot and serve."
+    ]
+  },
+  {
+    "name": "Banana oat bar",
+    "ingredients": [
+      {
+        "name": "Banana",
+        "quantity": 0.5,
+        "unit": "unit"
+      },
+      {
+        "name": "Porridge oats",
+        "quantity": 20,
+        "unit": "g"
+      },
+      {
+        "name": "Honey",
+        "quantity": 5,
+        "unit": "g"
+      }
+    ],
+    "steps": [
+      "Mash the banana and mix with the oats and honey.",
+      "Press into a small tray and bake at 180C for 15 minutes, then cool and cut into bars."
+    ]
+  },
+  {
+    "name": "Rice cakes with cream cheese",
+    "ingredients": [
+      {
+        "name": "Rice cakes",
+        "quantity": 2,
+        "unit": "unit"
+      },
+      {
+        "name": "Cream cheese",
+        "quantity": 20,
+        "unit": "g"
+      }
+    ],
+    "steps": [
+      "Spread cream cheese over the rice cakes and serve."
+    ]
+  },
+  {
+    "name": "Mixed berries bowl",
+    "ingredients": [
+      {
+        "name": "Mixed berries",
+        "quantity": 60,
+        "unit": "g"
+      }
+    ],
+    "steps": [
+      "Rinse the berries and serve in a bowl."
+    ]
+  },
+  {
+    "name": "Cucumber sticks with tzatziki",
+    "ingredients": [
+      {
+        "name": "Cucumber",
+        "quantity": 50,
+        "unit": "g"
+      },
+      {
+        "name": "Tzatziki",
+        "quantity": 30,
+        "unit": "g"
+      }
+    ],
+    "steps": [
+      "Cut the cucumber into sticks and serve with tzatziki for dipping."
+    ]
+  },
+  {
+    "name": "Wholegrain crackers with cheese",
+    "ingredients": [
+      {
+        "name": "Wholegrain crackers",
+        "quantity": 4,
+        "unit": "unit"
+      },
+      {
+        "name": "Cheddar cheese",
+        "quantity": 20,
+        "unit": "g"
+      }
+    ],
+    "steps": [
+      "Slice the cheese and serve on top of the crackers."
+    ]
+  }
+]

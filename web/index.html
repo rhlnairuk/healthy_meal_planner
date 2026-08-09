@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Healthy Meal Planner</title>
+<link rel="stylesheet" href="/app.css">
+</head>
+<body>
+<header class="topbar">
+  <h1>Healthy Meal Planner</h1>
+  <div class="household-controls">
+    <label>Adults <input type="number" id="adults" min="1" value="2"></label>
+    <label>Children <input type="number" id="children" min="0" value="1"></label>
+    <label>Week <input type="number" id="week" min="1" max="53" placeholder="current"></label>
+    <button id="apply-household">Apply</button>
+    <button id="reset-pantry" title="Forget tracked pantry surplus and start over">Reset pantry tracking</button>
+  </div>
+</header>
+
+<nav class="tabs">
+  <button class="tab-btn active" data-tab="this-week">This Week</button>
+  <button class="tab-btn" data-tab="next-week">Next Week</button>
+  <button class="tab-btn" data-tab="recipes">Recipes</button>
+  <button class="tab-btn" data-tab="long-life">Pantry Staples</button>
+  <button class="tab-btn" data-tab="adhoc">Extra Items</button>
+</nav>
+
+<main>
+  <div id="status" class="status"></div>
+
+  <section id="tab-this-week" class="tab-panel active">
+    <h2 id="household-summary"></h2>
+    <div class="grid two-col">
+      <div>
+        <h3>Menu</h3>
+        <div id="this-week-days" class="day-list"></div>
+      </div>
+      <div>
+        <h3>Recipes</h3>
+        <div id="this-week-recipes" class="recipe-list"></div>
+      </div>
+    </div>
+    <div class="grid two-col">
+      <div>
+        <h3>Weekly grocery list (perishables)</h3>
+        <ul id="weekly-grocery" class="item-list"></ul>
+      </div>
+      <div>
+        <h3 id="biweekly-title">Biweekly grocery list (pantry staples)</h3>
+        <ul id="biweekly-grocery" class="item-list"></ul>
+        <p id="biweekly-note" class="note"></p>
+      </div>
+    </div>
+    <div>
+      <h3>Extra items this week</h3>
+      <ul id="this-week-adhoc" class="item-list"></ul>
+    </div>
+  </section>
+
+  <section id="tab-next-week" class="tab-panel">
+    <h2>Next week's menu preview</h2>
+    <div class="grid two-col">
+      <div>
+        <h3>Menu</h3>
+        <div id="next-week-days" class="day-list"></div>
+      </div>
+      <div>
+        <h3>Recipes</h3>
+        <div id="next-week-recipes" class="recipe-list"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tab-recipes" class="tab-panel">
+    <h2>Recipes</h2>
+    <nav class="slot-tabs">
+      <button class="slot-btn active" data-slot="breakfasts">Breakfasts</button>
+      <button class="slot-btn" data-slot="lunches">Lunches</button>
+      <button class="slot-btn" data-slot="dinners">Dinners</button>
+      <button class="slot-btn" data-slot="snacks">Snacks</button>
+    </nav>
+    <div id="recipe-editor-list"></div>
+    <h3>Add a recipe</h3>
+    <form id="recipe-form" class="editor-form">
+      <label>Name <input type="text" id="recipe-name" required></label>
+      <div id="recipe-ingredients"></div>
+      <button type="button" id="add-ingredient-row">+ ingredient</button>
+      <div id="recipe-steps"></div>
+      <button type="button" id="add-step-row">+ step</button>
+      <button type="submit">Save recipe</button>
+    </form>
+  </section>
+
+  <section id="tab-long-life" class="tab-panel">
+    <h2>Pantry staples (long-life ingredients)</h2>
+    <p class="note">Ingredients listed here are bought biweekly in bulk, rounded to their real pack size. Anything not listed here defaults to the weekly perishable list.</p>
+    <div id="long-life-list"></div>
+    <h3>Add a pantry staple</h3>
+    <form id="long-life-form" class="editor-form">
+      <label>Name <input type="text" id="ll-name" required></label>
+      <label>Unit
+        <select id="ll-unit">
+          <option value="g">g</option>
+          <option value="ml">ml</option>
+          <option value="unit">unit</option>
+        </select>
+      </label>
+      <label>Pack size <input type="number" id="ll-pack-size" min="0.01" step="any" required></label>
+      <button type="submit">Save</button>
+    </form>
+  </section>
+
+  <section id="tab-adhoc" class="tab-panel">
+    <h2>Extra items</h2>
+    <p class="note">One-off items to buy this week that aren't tied to any recipe. Quantities here are literal amounts, not scaled by household size.</p>
+    <ul id="adhoc-list" class="item-list"></ul>
+    <form id="adhoc-form" class="editor-form">
+      <label>Name <input type="text" id="adhoc-name" required></label>
+      <label>Quantity <input type="number" id="adhoc-quantity" min="0.01" step="any" value="1" required></label>
+      <label>Unit
+        <select id="adhoc-unit">
+          <option value="unit">unit</option>
+          <option value="g">g</option>
+          <option value="ml">ml</option>
+        </select>
+      </label>
+      <button type="submit">Add</button>
+    </form>
+  </section>
+</main>
+
+<script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+services:
+  meal-planner:
+    build: .
+    ports:
+      - "8765:8765"
+    # Bind-mount the whole project directory so recipes/*.json,
+    # long_life_ingredients.json, and the generated pantry_state.json /
+    # adhoc_items.json live on the host, not just inside the container -
+    # editable directly (with any text editor) and persisted across
+    # `docker compose up`/`down`, not baked into the image.
+    volumes:
+      - .:/app
+    restart: unless-stopped

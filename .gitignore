@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.idea/
+.DS_Store
+
+# Generated runtime state - not hand-edited, safe to delete/regenerate
+# (see README.md "Pantry tracking" and "Extra Items").
+pantry_state.json
+adhoc_items.json

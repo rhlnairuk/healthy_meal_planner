@@ -1,0 +1,257 @@
+[
+  {
+    "name": "Chicken salad wrap",
+    "ingredients": [
+      {
+        "name": "Chicken breast fillets",
+        "quantity": 80,
+        "unit": "g"
+      },
+      {
+        "name": "Wholemeal wraps",
+        "quantity": 1,
+        "unit": "unit"
+      },
+      {
+        "name": "Mixed salad leaves",
+        "quantity": 30,
+        "unit": "g"
+      },
+      {
+        "name": "Cucumber",
+        "quantity": 30,
+        "unit": "g"
+      },
+      {
+        "name": "Cherry tomatoes",
+        "quantity": 30,
+        "unit": "g"
+      },
+      {
+        "name": "Hummus",
+        "quantity": 20,
+        "unit": "g"
+      }
+    ],
+    "steps": [
+      "Cook or use pre-cooked chicken breast and slice thinly.",
+      "Spread hummus over the wrap, then layer on salad leaves, cucumber, tomatoes and chicken.",
+      "Roll up tightly and slice in half."
+    ]
+  },
+  {
+    "name": "Vegetable soup with wholemeal bread",
+    "ingredients": [
+      {
+        "name": "Carrots",
+        "quantity": 60,
+        "unit": "g"
+      },
+      {
+        "name": "Sweet potato",
+        "quantity": 60,
+        "unit": "g"
+      },
+      {
+        "name": "Red lentils",
+        "quantity": 30,
+        "unit": "g"
+      },
+      {
+        "name": "Vegetable stock",
+        "quantity": 200,
+        "unit": "ml"
+      },
+      {
+        "name": "Wholemeal bread",
+        "quantity": 1,
+        "unit": "unit"
+      }
+    ],
+    "steps": [
+      "Dice the carrots and sweet potato.",
+      "Simmer with the lentils and stock for 20 minutes until vegetables and lentils are soft.",
+      "Blend if a smooth soup is preferred, then serve with bread."
+    ]
+  },
+  {
+    "name": "Tuna and sweetcorn pasta salad",
+    "ingredients": [
+      {
+        "name": "Wholewheat pasta",
+        "quantity": 60,
+        "unit": "g"
+      },
+      {
+        "name": "Tuna (in spring water)",
+        "quantity": 60,
+        "unit": "g"
+      },
+      {
+        "name": "Sweetcorn",
+        "quantity": 40,
+        "unit": "g"
+      },
+      {
+        "name": "Cherry tomatoes",
+        "quantity": 40,
+        "unit": "g"
+      },
+      {
+        "name": "Olive oil",
+        "quantity": 5,
+        "unit": "ml"
+      }
+    ],
+    "steps": [
+      "Cook the pasta according to packet instructions, then drain and cool slightly.",
+      "Drain the tuna and halve the cherry tomatoes.",
+      "Toss everything together with the sweetcorn and olive oil."
+    ]
+  },
+  {
+    "name": "Jacket potato with cheese and beans",
+    "ingredients": [
+      {
+        "name": "Baking potato",
+        "quantity": 1,
+        "unit": "unit"
+      },
+      {
+        "name": "Cheddar cheese",
+        "quantity": 30,
+        "unit": "g"
+      },
+      {
+        "name": "Baked beans",
+        "quantity": 100,
+        "unit": "g"
+      }
+    ],
+    "steps": [
+      "Pierce the potato and bake at 200C for about an hour until soft (or microwave 8-10 minutes).",
+      "Warm the beans in a small pan.",
+      "Split the potato open and top with grated cheese and beans."
+    ]
+  },
+  {
+    "name": "Egg salad sandwich",
+    "ingredients": [
+      {
+        "name": "Wholemeal bread",
+        "quantity": 2,
+        "unit": "unit"
+      },
+      {
+        "name": "Free-range eggs",
+        "quantity": 1.5,
+        "unit": "unit"
+      },
+      {
+        "name": "Mixed salad leaves",
+        "quantity": 20,
+        "unit": "g"
+      },
+      {
+        "name": "Cucumber",
+        "quantity": 20,
+        "unit": "g"
+      }
+    ],
+    "steps": [
+      "Hard-boil the eggs for 8-9 minutes, cool, peel and chop.",
+      "Mix the egg with a little mayonnaise or yogurt if desired.",
+      "Layer onto bread with salad leaves and sliced cucumber."
+    ]
+  },
+  {
+    "name": "Falafel and hummus flatbread",
+    "ingredients": [
+      {
+        "name": "Falafel",
+        "quantity": 90,
+        "unit": "g"
+      },
+      {
+        "name": "Wholemeal wraps",
+        "quantity": 1,
+        "unit": "unit"
+      },
+      {
+        "name": "Hummus",
+        "quantity": 30,
+        "unit": "g"
+      },
+      {
+        "name": "Mixed salad leaves",
+        "quantity": 30,
+        "unit": "g"
+      }
+    ],
+    "steps": [
+      "Warm the falafel through in an oven or pan according to packet instructions.",
+      "Spread hummus over the flatbread and add salad leaves.",
+      "Top with warm falafel and fold or roll to serve."
+    ]
+  },
+  {
+    "name": "Butternut squash soup with bread",
+    "ingredients": [
+      {
+        "name": "Butternut squash",
+        "quantity": 100,
+        "unit": "g"
+      },
+      {
+        "name": "Carrots",
+        "quantity": 40,
+        "unit": "g"
+      },
+      {
+        "name": "Vegetable stock",
+        "quantity": 200,
+        "unit": "ml"
+      },
+      {
+        "name": "Wholemeal bread",
+        "quantity": 1,
+        "unit": "unit"
+      }
+    ],
+    "steps": [
+      "Dice the squash and carrots.",
+      "Simmer in the stock for 20 minutes until soft.",
+      "Blend until smooth and serve with bread."
+    ]
+  },
+  {
+    "name": "Turkey and salad sandwich",
+    "ingredients": [
+      {
+        "name": "Wholemeal bread",
+        "quantity": 2,
+        "unit": "unit"
+      },
+      {
+        "name": "Turkey breast slices",
+        "quantity": 60,
+        "unit": "g"
+      },
+      {
+        "name": "Mixed salad leaves",
+        "quantity": 20,
+        "unit": "g"
+      },
+      {
+        "name": "Cucumber",
+        "quantity": 20,
+        "unit": "g"
+      }
+    ],
+    "steps": [
+      "Lay the turkey slices on one piece of bread.",
+      "Add salad leaves and sliced cucumber.",
+      "Top with the second slice of bread and cut in half."
+    ]
+  }
+]
