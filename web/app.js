@@ -135,6 +135,91 @@ function initRecipeModal() {
   });
 }
 
+// ---- shopping ticks (client-side only, per week) ----
+
+function ticksStorageKey(weekKey) {
+  return "grocery-ticks:" + weekKey;
+}
+
+function tickId(listName, display) {
+  return listName + "|" + display;
+}
+
+function loadTicks(weekKey) {
+  try {
+    return new Set(JSON.parse(localStorage.getItem(ticksStorageKey(weekKey)) || "[]"));
+  } catch (e) {
+    return new Set();
+  }
+}
+
+function saveTicks(weekKey, ticks) {
+  if (ticks.size) localStorage.setItem(ticksStorageKey(weekKey), JSON.stringify([...ticks]));
+  else localStorage.removeItem(ticksStorageKey(weekKey));
+}
+
+function setTicked(weekKey, listName, display, ticked) {
+  const ticks = loadTicks(weekKey);
+  if (ticked) ticks.add(tickId(listName, display));
+  else ticks.delete(tickId(listName, display));
+  saveTicks(weekKey, ticks);
+}
+
+// sections: [{ title, listName, items }] - returns "" when nothing is left to buy.
+function buildShoppingListText(sections, ticks) {
+  const blocks = [];
+  for (const section of sections) {
+    const lines = section.items
+      .filter((item) => !ticks.has(tickId(section.listName, item.display)))
+      .map((item) => "- " + item.display);
+    if (lines.length) blocks.push([section.title, ...lines].join("\n"));
+  }
+  return blocks.join("\n\n");
+}
+
+function shoppingSections(data) {
+  const sections = [{ title: "Weekly groceries", listName: "weekly", items: data.this_week.weekly_grocery }];
+  if (data.biweekly_due) {
+    sections.push({ title: "Biweekly pantry staples", listName: "biweekly", items: data.biweekly.items });
+  }
+  sections.push({ title: "Extra items", listName: "adhoc", items: data.this_week.adhoc });
+  return sections;
+}
+
+async function copyShoppingList() {
+  const data = state.planData;
+  if (!data) return;
+  const text = buildShoppingListText(shoppingSections(data), loadTicks(data.week_key));
+  if (!text) {
+    setStatus("Nothing left to buy - every item is ticked.", "ok");
+    return;
+  }
+  try {
+    if (!navigator.clipboard) throw new Error("Clipboard is not available (needs HTTPS or localhost).");
+    await navigator.clipboard.writeText(text);
+    setStatus("Shopping list copied.", "ok");
+  } catch (e) {
+    setStatus("Could not copy: " + e.message, "error");
+  }
+}
+
+function clearTicks() {
+  const data = state.planData;
+  if (!data) return;
+  localStorage.removeItem(ticksStorageKey(data.week_key));
+  document.querySelectorAll("#tab-this-week .item-list li.checked").forEach((li) => {
+    li.classList.remove("checked");
+    li.querySelector("input[type=checkbox]").checked = false;
+  });
+  setStatus("Ticks cleared.", "ok");
+}
+
+function initShoppingControls() {
+  document.getElementById("copy-shopping-list").addEventListener("click", copyShoppingList);
+  document.getElementById("clear-ticks").addEventListener("click", clearTicks);
+}
+
+// opts.checkable = { weekKey, listName } adds a persisted tick-off checkbox per item.
 function renderItemList(containerId, items, opts) {
   const container = document.getElementById(containerId);
   container.innerHTML = "";
@@ -144,11 +229,30 @@ function renderItemList(containerId, items, opts) {
     container.appendChild(li);
     return;
   }
+  const checkable = opts && opts.checkable;
+  const ticks = checkable ? loadTicks(checkable.weekKey) : null;
   items.forEach((item, index) => {
     const li = document.createElement("li");
-    const label = document.createElement("span");
-    label.textContent = item.display;
-    li.appendChild(label);
+    if (checkable) {
+      const label = document.createElement("label");
+      label.className = "item-label";
+      const box = document.createElement("input");
+      box.type = "checkbox";
+      box.checked = ticks.has(tickId(checkable.listName, item.display));
+      li.classList.toggle("checked", box.checked);
+      box.addEventListener("change", () => {
+        li.classList.toggle("checked", box.checked);
+        setTicked(checkable.weekKey, checkable.listName, item.display, box.checked);
+      });
+      const text = document.createElement("span");
+      text.textContent = item.display;
+      label.append(box, text);
+      li.appendChild(label);
+    } else {
+      const label = document.createElement("span");
+      label.textContent = item.display;
+      li.appendChild(label);
+    }
     if (opts && opts.onRemove) {
       const btn = document.createElement("button");
       btn.className = "secondary";
@@ -170,10 +274,14 @@ async function loadPlan() {
     `Week ${data.week_number} - ${data.household.description}`;
 
   renderDays("this-week-days", data.this_week.days, recipesByName(data.this_week.recipes));
-  renderItemList("weekly-grocery", data.this_week.weekly_grocery, { emptyMessage: "(nothing needed)" });
+  renderItemList("weekly-grocery", data.this_week.weekly_grocery, {
+    emptyMessage: "(nothing needed)",
+    checkable: { weekKey: data.week_key, listName: "weekly" },
+  });
   renderItemList("this-week-adhoc", data.this_week.adhoc, {
     emptyMessage: "(none added)",
     onRemove: (index) => removeAdhocItem(data.week_number, index),
+    checkable: { weekKey: data.week_key, listName: "adhoc" },
   });
 
   const biweeklyTitle = document.getElementById("biweekly-title");
@@ -184,6 +292,7 @@ async function loadPlan() {
     biweeklyNote.textContent = "";
     renderItemList("biweekly-grocery", data.biweekly.items, {
       emptyMessage: "Fully covered by pantry surplus from previous shops - nothing new to buy.",
+      checkable: { weekKey: data.week_key, listName: "biweekly" },
     });
   } else {
     biweeklyTitle.textContent = "Biweekly grocery list (pantry staples)";
@@ -478,6 +587,7 @@ async function init() {
   initLongLifeForm();
   initAdhocForm();
   initRecipeModal();
+  initShoppingControls();
   try {
     await loadPlan();
     await loadRecipeEditor();
