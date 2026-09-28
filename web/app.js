@@ -2,6 +2,7 @@ const state = {
   adults: 2,
   children: 1,
   week: null, // null = current week
+  currentWeek: null, // ISO week the server reports when no week is requested
   currentSlot: "breakfasts",
   planData: null,
 };
@@ -64,7 +65,8 @@ function initTabs() {
 
 const MEAL_SLOTS_LABELS = [["Breakfast", "breakfast"], ["Lunch", "lunch"], ["Dinner", "dinner"], ["Snack", "snack"]];
 
-function renderDays(containerId, days, recipeLookup) {
+// todayName (e.g. "Monday") highlights the matching day card; omit it for other weeks.
+function renderDays(containerId, days, recipeLookup, todayName) {
   const container = document.getElementById(containerId);
   container.innerHTML = "";
   for (const day of days) {
@@ -74,6 +76,13 @@ function renderDays(containerId, days, recipeLookup) {
     const name = document.createElement("div");
     name.className = "day-name";
     name.textContent = day.day;
+    if (todayName && day.day === todayName) {
+      card.classList.add("today");
+      const badge = document.createElement("span");
+      badge.className = "today-badge";
+      badge.textContent = "Today";
+      name.appendChild(badge);
+    }
     card.appendChild(name);
 
     for (const [label, key] of MEAL_SLOTS_LABELS) {
@@ -269,11 +278,16 @@ async function loadPlan() {
   if (state.week) params.set("week", state.week);
   const data = await api("/api/plan?" + params.toString());
   state.planData = data;
+  if (!state.week) state.currentWeek = data.week_number;
+  document.getElementById("week").value = state.week || "";
 
   document.getElementById("household-summary").textContent =
     `Week ${data.week_number} - ${data.household.description}`;
 
-  renderDays("this-week-days", data.this_week.days, recipesByName(data.this_week.recipes));
+  const todayName = data.week_number === state.currentWeek
+    ? new Date().toLocaleDateString("en-US", { weekday: "long" })
+    : null;
+  renderDays("this-week-days", data.this_week.days, recipesByName(data.this_week.recipes), todayName);
   renderItemList("weekly-grocery", data.this_week.weekly_grocery, {
     emptyMessage: "(nothing needed)",
     checkable: { weekKey: data.week_key, listName: "weekly" },
@@ -300,6 +314,7 @@ async function loadPlan() {
     biweeklyNote.textContent = "Not due this week - covered by last week's biweekly shop.";
   }
 
+  document.getElementById("next-week-title").textContent = `Week ${data.next_week.week_number} menu preview`;
   renderDays("next-week-days", data.next_week.days, recipesByName(data.next_week.recipes));
 
   await loadAdhocEditorList(data.week_number);
@@ -585,12 +600,40 @@ function initAdhocForm() {
 
 // ---- household controls ----
 
+function clampWeek(week) {
+  return Math.min(53, Math.max(1, week));
+}
+
+// The current week is stored as null so the #week input shows its "current" placeholder.
+function normalizeWeek(week) {
+  const clamped = clampWeek(week);
+  return clamped === state.currentWeek ? null : clamped;
+}
+
+function viewedWeek() {
+  return state.week || state.currentWeek || (state.planData && state.planData.week_number);
+}
+
+async function goToWeek(week) {
+  const next = week === null ? null : normalizeWeek(week);
+  if (next === state.week && state.planData) return; // already there (e.g. Prev at week 1)
+  const previous = state.week;
+  state.week = next;
+  try {
+    await loadPlan();
+  } catch (e) {
+    state.week = previous;
+    document.getElementById("week").value = previous || "";
+    setStatus(e.message, "error");
+  }
+}
+
 function initHouseholdControls() {
   document.getElementById("apply-household").addEventListener("click", async () => {
     state.adults = parseInt(document.getElementById("adults").value, 10) || 2;
     state.children = parseInt(document.getElementById("children").value, 10) || 0;
     const weekVal = document.getElementById("week").value;
-    state.week = weekVal ? parseInt(weekVal, 10) : null;
+    state.week = weekVal ? normalizeWeek(parseInt(weekVal, 10)) : null;
     saveHouseholdToStorage();
     try {
       await loadPlan();
@@ -599,6 +642,10 @@ function initHouseholdControls() {
       setStatus(e.message, "error");
     }
   });
+
+  document.getElementById("week-prev").addEventListener("click", () => goToWeek(viewedWeek() - 1));
+  document.getElementById("week-next").addEventListener("click", () => goToWeek(viewedWeek() + 1));
+  document.getElementById("week-current").addEventListener("click", () => goToWeek(null));
 
   document.getElementById("reset-pantry").addEventListener("click", async () => {
     if (!confirm("Forget tracked pantry surplus and start over?")) return;

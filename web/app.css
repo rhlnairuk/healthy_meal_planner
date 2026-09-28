@@ -48,6 +48,7 @@ body {
 .household-controls { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; font-size: 0.85rem; }
 .household-controls label { display: flex; flex-direction: column; gap: 0.15rem; }
 .household-controls input { width: 5rem; padding: 0.25rem; }
+.week-nav { display: flex; flex-wrap: wrap; gap: 0.35rem; }
 
 button {
   background: var(--accent);
@@ -117,6 +118,17 @@ main { padding: 1.25rem; max-width: 1100px; margin: 0 auto; }
 }
 
 .day-card .day-name { font-weight: 600; margin-bottom: 0.25rem; }
+.day-card.today { border-color: var(--accent); box-shadow: inset 3px 0 0 var(--accent); }
+.today-badge {
+  margin-left: 0.5rem;
+  padding: 0.05rem 0.4rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-text);
+  font-size: 0.7rem;
+  font-weight: 500;
+  vertical-align: middle;
+}
 .day-card .meal-row { font-size: 0.9rem; color: var(--muted); }
 .day-card .meal-row b { color: var(--text); font-weight: 500; }
 
