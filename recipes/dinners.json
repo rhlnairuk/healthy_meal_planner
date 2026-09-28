@@ -1,327 +1,303 @@
 [
   {
-    "name": "Baked salmon, broccoli and brown rice",
+    "name": "Kerala-style fish molee with brown rice",
     "ingredients": [
       {
-        "name": "Salmon fillets",
-        "quantity": 100,
-        "unit": "g"
-      },
-      {
-        "name": "Broccoli",
-        "quantity": 80,
-        "unit": "g"
-      },
-      {
         "name": "Brown rice",
-        "quantity": 60,
+        "quantity": 75.0,
         "unit": "g"
       },
       {
-        "name": "Olive oil",
-        "quantity": 5,
+        "name": "White fish fillets",
+        "quantity": 140.0,
+        "unit": "g"
+      },
+      {
+        "name": "Coconut milk",
+        "quantity": 100.0,
         "unit": "ml"
       },
       {
-        "name": "Lemon",
-        "quantity": 0.25,
+        "name": "Onion",
+        "quantity": 40.0,
+        "unit": "g"
+      }
+    ],
+    "steps": [
+      "Fry the onion gently until soft, without browning.",
+      "Add the coconut milk and simmer, then add the fish and poach until just cooked through.",
+      "Serve the molee hot with the cooked brown rice."
+    ]
+  },
+  {
+    "name": "Kootu curry with brown rice",
+    "ingredients": [
+      {
+        "name": "Brown rice",
+        "quantity": 75.0,
+        "unit": "g"
+      },
+      {
+        "name": "Mixed vegetables",
+        "quantity": 160.0,
+        "unit": "g"
+      },
+      {
+        "name": "Desiccated coconut",
+        "quantity": 30.0,
+        "unit": "g"
+      },
+      {
+        "name": "Cumin seeds",
+        "quantity": 2.0,
+        "unit": "g"
+      }
+    ],
+    "steps": [
+      "Simmer the mixed vegetables until tender.",
+      "Blend the coconut with the cumin and stir through, warming gently for the kootu.",
+      "Serve with the cooked brown rice."
+    ]
+  },
+  {
+    "name": "Kerala-style egg roast with wholemeal chapati",
+    "ingredients": [
+      {
+        "name": "Wholemeal flour",
+        "quantity": 90.0,
+        "unit": "g"
+      },
+      {
+        "name": "Eggs",
+        "quantity": 2.0,
         "unit": "unit"
-      }
-    ],
-    "steps": [
-      "Preheat oven to 200C. Place salmon on a tray, drizzle with olive oil and a squeeze of lemon.",
-      "Bake for 12-15 minutes until cooked through.",
-      "Meanwhile cook the rice and steam the broccoli, then serve together."
-    ]
-  },
-  {
-    "name": "Chicken and vegetable stir-fry with noodles",
-    "ingredients": [
+      },
       {
-        "name": "Chicken breast fillets",
-        "quantity": 90,
+        "name": "Onion",
+        "quantity": 60.0,
         "unit": "g"
       },
       {
-        "name": "Egg noodles",
-        "quantity": 60,
-        "unit": "g"
-      },
-      {
-        "name": "Mixed stir-fry vegetables",
-        "quantity": 100,
-        "unit": "g"
-      },
-      {
-        "name": "Soy sauce",
-        "quantity": 10,
-        "unit": "ml"
-      },
-      {
-        "name": "Sesame oil",
-        "quantity": 5,
-        "unit": "ml"
-      }
-    ],
-    "steps": [
-      "Slice the chicken thinly and stir-fry in sesame oil over high heat until cooked through.",
-      "Add the vegetables and stir-fry a further 3-4 minutes until just tender.",
-      "Meanwhile cook the noodles, then toss through the pan with soy sauce."
-    ]
-  },
-  {
-    "name": "Lean beef chilli with rice",
-    "ingredients": [
-      {
-        "name": "Lean beef mince (5% fat)",
-        "quantity": 90,
-        "unit": "g"
-      },
-      {
-        "name": "Kidney beans",
-        "quantity": 60,
-        "unit": "g"
-      },
-      {
-        "name": "Chopped tomatoes",
-        "quantity": 100,
-        "unit": "g"
-      },
-      {
-        "name": "Brown rice",
-        "quantity": 60,
-        "unit": "g"
-      },
-      {
-        "name": "Red pepper",
-        "quantity": 40,
+        "name": "Tomatoes",
+        "quantity": 60.0,
         "unit": "g"
       }
     ],
     "steps": [
-      "Brown the mince in a pan, breaking it up as it cooks.",
-      "Add diced pepper, kidney beans and chopped tomatoes, then simmer 15-20 minutes.",
-      "Cook the rice separately and serve the chilli on top."
+      "Hard-boil the eggs, peel, and halve.",
+      "Fry the onion and tomatoes with Kerala spices until soft and jammy, then toss the eggs through to coat.",
+      "Knead the wholemeal flour into dough and roll into chapatis; cook on a hot griddle and serve alongside.",
+      "Serve the egg roast hot with the chapati."
     ]
   },
   {
-    "name": "Vegetable and cheese pasta bake",
+    "name": "Kerala-style fish curry with new potatoes",
     "ingredients": [
-      {
-        "name": "Wholewheat pasta",
-        "quantity": 70,
-        "unit": "g"
-      },
-      {
-        "name": "Courgette",
-        "quantity": 50,
-        "unit": "g"
-      },
-      {
-        "name": "Red pepper",
-        "quantity": 40,
-        "unit": "g"
-      },
-      {
-        "name": "Chopped tomatoes",
-        "quantity": 100,
-        "unit": "g"
-      },
-      {
-        "name": "Mozzarella cheese",
-        "quantity": 30,
-        "unit": "g"
-      }
-    ],
-    "steps": [
-      "Cook the pasta until just al dente, then drain.",
-      "Dice courgette and pepper, simmer with the chopped tomatoes for 10 minutes to make a sauce.",
-      "Mix through the pasta, top with mozzarella and grill or bake until melted and golden."
-    ]
-  },
-  {
-    "name": "Fish pie with mashed sweet potato",
-    "ingredients": [
-      {
-        "name": "Cod fillets",
-        "quantity": 100,
-        "unit": "g"
-      },
-      {
-        "name": "Sweet potato",
-        "quantity": 150,
-        "unit": "g"
-      },
-      {
-        "name": "Peas",
-        "quantity": 50,
-        "unit": "g"
-      },
-      {
-        "name": "Semi-skimmed milk",
-        "quantity": 50,
-        "unit": "ml"
-      }
-    ],
-    "steps": [
-      "Boil the sweet potato until soft, then mash with a splash of milk.",
-      "Poach the cod gently in the remaining milk for 5-6 minutes until it flakes easily.",
-      "Flake the fish into a dish with the peas, top with mash, and bake at 200C for 15 minutes."
-    ]
-  },
-  {
-    "name": "Roast chicken with root vegetables",
-    "ingredients": [
-      {
-        "name": "Chicken breast fillets",
-        "quantity": 100,
-        "unit": "g"
-      },
-      {
-        "name": "Carrots",
-        "quantity": 60,
-        "unit": "g"
-      },
-      {
-        "name": "Parsnips",
-        "quantity": 60,
-        "unit": "g"
-      },
-      {
-        "name": "Sweet potato",
-        "quantity": 80,
-        "unit": "g"
-      },
-      {
-        "name": "Olive oil",
-        "quantity": 5,
-        "unit": "ml"
-      }
-    ],
-    "steps": [
-      "Chop the carrots, parsnips and sweet potato, toss in olive oil and roast at 200C for 25 minutes.",
-      "Add the chicken to the tray and roast a further 20 minutes until cooked through.",
-      "Rest briefly, then serve chicken and vegetables together."
-    ]
-  },
-  {
-    "name": "Turkey meatballs with spaghetti",
-    "ingredients": [
-      {
-        "name": "Turkey mince",
-        "quantity": 90,
-        "unit": "g"
-      },
-      {
-        "name": "Wholewheat spaghetti",
-        "quantity": 70,
-        "unit": "g"
-      },
-      {
-        "name": "Chopped tomatoes",
-        "quantity": 100,
-        "unit": "g"
-      },
-      {
-        "name": "Courgette",
-        "quantity": 40,
-        "unit": "g"
-      }
-    ],
-    "steps": [
-      "Shape the turkey mince into small meatballs and brown in a pan on all sides.",
-      "Add diced courgette and chopped tomatoes, then simmer 15 minutes until meatballs are cooked through.",
-      "Cook the spaghetti and serve with the meatballs and sauce spooned over."
-    ]
-  },
-  {
-    "name": "Prawn and vegetable stir-fry",
-    "ingredients": [
-      {
-        "name": "Raw king prawns",
-        "quantity": 90,
-        "unit": "g"
-      },
-      {
-        "name": "Brown rice",
-        "quantity": 60,
-        "unit": "g"
-      },
-      {
-        "name": "Mixed stir-fry vegetables",
-        "quantity": 100,
-        "unit": "g"
-      },
-      {
-        "name": "Soy sauce",
-        "quantity": 10,
-        "unit": "ml"
-      }
-    ],
-    "steps": [
-      "Cook the rice according to packet instructions.",
-      "Stir-fry the vegetables for 3-4 minutes, then add the prawns and cook until pink and opaque.",
-      "Stir through soy sauce and serve over the rice."
-    ]
-  },
-  {
-    "name": "Chickpea and spinach curry with rice",
-    "ingredients": [
-      {
-        "name": "Chickpeas",
-        "quantity": 100,
-        "unit": "g"
-      },
-      {
-        "name": "Spinach",
-        "quantity": 50,
-        "unit": "g"
-      },
-      {
-        "name": "Chopped tomatoes",
-        "quantity": 100,
-        "unit": "g"
-      },
-      {
-        "name": "Brown rice",
-        "quantity": 60,
-        "unit": "g"
-      }
-    ],
-    "steps": [
-      "Simmer the chickpeas with the chopped tomatoes and a mild curry spice blend for 10 minutes.",
-      "Stir in the spinach and cook until just wilted.",
-      "Serve over cooked brown rice."
-    ]
-  },
-  {
-    "name": "Baked cod with new potatoes and green beans",
-    "ingredients": [
-      {
-        "name": "Cod fillets",
-        "quantity": 100,
-        "unit": "g"
-      },
       {
         "name": "New potatoes",
-        "quantity": 120,
+        "quantity": 160.0,
         "unit": "g"
       },
       {
-        "name": "Green beans",
-        "quantity": 60,
+        "name": "White fish fillets",
+        "quantity": 140.0,
         "unit": "g"
       },
       {
-        "name": "Olive oil",
-        "quantity": 5,
+        "name": "Tamarind paste",
+        "quantity": 10.0,
+        "unit": "g"
+      },
+      {
+        "name": "Coconut oil",
+        "quantity": 5.0,
         "unit": "ml"
       }
     ],
     "steps": [
-      "Boil the new potatoes until tender, about 15-18 minutes.",
-      "Place cod on a tray with a drizzle of olive oil and bake at 200C for 12-15 minutes.",
-      "Steam the green beans for the last 4-5 minutes and serve everything together."
+      "Boil the new potatoes until tender, then drain.",
+      "Simmer the fish with tamarind paste, turmeric, and chilli until just cooked through.",
+      "Serve the curry with the boiled potatoes."
+    ]
+  },
+  {
+    "name": "Cherupayar (moong bean) curry with brown rice",
+    "ingredients": [
+      {
+        "name": "Brown rice",
+        "quantity": 75.0,
+        "unit": "g"
+      },
+      {
+        "name": "Whole moong beans",
+        "quantity": 80.0,
+        "unit": "g"
+      },
+      {
+        "name": "Desiccated coconut",
+        "quantity": 30.0,
+        "unit": "g"
+      },
+      {
+        "name": "Shallots",
+        "quantity": 30.0,
+        "unit": "g"
+      }
+    ],
+    "steps": [
+      "Simmer the whole moong beans until soft.",
+      "Fry the shallots and desiccated coconut with mustard seeds, then stir through the beans.",
+      "Serve with the cooked brown rice."
+    ]
+  },
+  {
+    "name": "Kolhapuri-style chicken curry with wholemeal roti",
+    "ingredients": [
+      {
+        "name": "Wholemeal flour",
+        "quantity": 85.0,
+        "unit": "g"
+      },
+      {
+        "name": "Chicken breast",
+        "quantity": 140.0,
+        "unit": "g"
+      },
+      {
+        "name": "Garam masala",
+        "quantity": 8.0,
+        "unit": "g"
+      },
+      {
+        "name": "Onion",
+        "quantity": 50.0,
+        "unit": "g"
+      }
+    ],
+    "steps": [
+      "Fry the onion until deep golden, then stir in the garam masala and chilli powder.",
+      "Add the chicken and simmer until cooked through.",
+      "Knead the wholemeal flour into a flatbread and cook on a hot griddle for the roti; serve alongside."
+    ]
+  },
+  {
+    "name": "Bharli vangi (stuffed aubergine) with wholemeal roti",
+    "ingredients": [
+      {
+        "name": "Wholemeal flour",
+        "quantity": 85.0,
+        "unit": "g"
+      },
+      {
+        "name": "Aubergine",
+        "quantity": 160.0,
+        "unit": "g"
+      },
+      {
+        "name": "Roasted peanuts, crushed",
+        "quantity": 25.0,
+        "unit": "g"
+      },
+      {
+        "name": "Desiccated coconut",
+        "quantity": 20.0,
+        "unit": "g"
+      }
+    ],
+    "steps": [
+      "Cut the aubergine into wedges and stuff with a paste of the crushed peanuts, coconut, and spices.",
+      "Simmer gently in a little water until the aubergine is tender.",
+      "Knead the wholemeal flour into a flatbread and cook on a hot griddle; serve alongside."
+    ]
+  },
+  {
+    "name": "Matki usal (sprouted bean curry) with brown rice",
+    "ingredients": [
+      {
+        "name": "Brown rice",
+        "quantity": 75.0,
+        "unit": "g"
+      },
+      {
+        "name": "Sprouted bean mix",
+        "quantity": 130.0,
+        "unit": "g"
+      },
+      {
+        "name": "Onion",
+        "quantity": 40.0,
+        "unit": "g"
+      },
+      {
+        "name": "Desiccated coconut",
+        "quantity": 15.0,
+        "unit": "g"
+      }
+    ],
+    "steps": [
+      "Fry the onion until soft, then add the sprouted bean mix and a little water.",
+      "Simmer until tender, finishing with the desiccated coconut.",
+      "Serve with the cooked brown rice."
+    ]
+  },
+  {
+    "name": "Malvani-style prawn curry with brown rice",
+    "ingredients": [
+      {
+        "name": "Brown rice",
+        "quantity": 75.0,
+        "unit": "g"
+      },
+      {
+        "name": "Prawns",
+        "quantity": 140.0,
+        "unit": "g"
+      },
+      {
+        "name": "Coconut milk",
+        "quantity": 100.0,
+        "unit": "ml"
+      },
+      {
+        "name": "Garam masala",
+        "quantity": 8.0,
+        "unit": "g"
+      }
+    ],
+    "steps": [
+      "Simmer the coconut milk with the garam masala and chilli powder for a few minutes.",
+      "Add the prawns and cook gently until just pink and cooked through.",
+      "Serve with the cooked brown rice."
+    ]
+  },
+  {
+    "name": "Vegetable kolhapuri with wholemeal chapati",
+    "ingredients": [
+      {
+        "name": "Wholemeal flour",
+        "quantity": 90.0,
+        "unit": "g"
+      },
+      {
+        "name": "Mixed vegetables",
+        "quantity": 160.0,
+        "unit": "g"
+      },
+      {
+        "name": "Onion",
+        "quantity": 40.0,
+        "unit": "g"
+      },
+      {
+        "name": "Desiccated coconut",
+        "quantity": 15.0,
+        "unit": "g"
+      }
+    ],
+    "steps": [
+      "Fry the onion and desiccated coconut with garam masala and chilli powder until fragrant.",
+      "Add the mixed vegetables and simmer until tender.",
+      "Knead the wholemeal flour into dough and roll into chapatis; cook on a hot griddle and serve alongside."
     ]
   }
 ]

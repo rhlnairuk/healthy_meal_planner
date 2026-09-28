@@ -44,6 +44,7 @@ python3 main.py recipe list [slot]                          # slot: breakfasts|l
 python3 main.py recipe show <slot> <name-or-index>
 python3 main.py recipe add <slot> "<name>" --ingredient "NAME:QTY:UNIT" [...] [--step "..." [...]]
 python3 main.py recipe update <slot> <name-or-index> [--name ...] [--ingredient ...] [--step ...]
+python3 main.py recipe remove <slot> <name-or-index>
 ```
 
 - `--ingredient` is `NAME:QUANTITY:UNIT` (quantity per one adult portion,
@@ -52,11 +53,71 @@ python3 main.py recipe update <slot> <name-or-index> [--name ...] [--ingredient 
   replaces that *entire* list (no per-item patch) — if the user wants to
   tweak one ingredient in an existing recipe, run `recipe show` first to get
   the full current list, then pass the whole edited list back.
-- Both `show` and `update` take either the exact recipe name or its list
-  index from `recipe list`.
-- There is no `recipe remove` — deleting a recipe isn't supported by this
-  CLI (only the web UI, `webapp.py`, can delete one). Say so if asked rather
-  than hand-editing the JSON.
+- `show`, `update`, and `remove` all take either the exact recipe name or
+  its list index from `recipe list`.
+- `remove` refuses to empty a slot to zero (each meal slot needs at least
+  one recipe) — to fully replace a slot's recipes, `add` the new ones first,
+  then `remove` the old ones by name; never rely on index numbers staying
+  put across a `remove`, since later indices shift down.
+
+## Recipe workflows
+
+### Add a new recipe
+
+1. Pick the right slot (`breakfasts`/`lunches`/`dinners`/`snacks`) from what
+   the request describes — a dish eaten as a main evening meal is `dinners`,
+   not `lunches`, even if it could technically work for either.
+2. Check `long_life_ingredients.json` (read the file, there's no CLI for it)
+   for each ingredient name. If an ingredient you're about to use already
+   exists there, **reuse its exact name and unit** — this is what makes it
+   land on the biweekly pantry list at the right pack size instead of
+   silently defaulting to the weekly perishable list. A near-miss name
+   (`"brown rice"` vs `"Brown rice"`) is treated as a different ingredient.
+3. Quantities in `--ingredient` are **per one adult portion** — household
+   scaling happens later in `grocery.py`, don't pre-multiply for the
+   household size yourself.
+4. If the household includes a young child (check `main.py`'s default
+   `--children`/DESIGN.md's stated goals), avoid listing whole nuts/hard
+   choking-hazard items as an ingredient on their own — use a prepared form
+   in the name, e.g. `"Roasted peanuts, crushed"`, `"Almond butter"`, the
+   same way the existing recipes do.
+5. Run `recipe add <slot> "<name>" --ingredient "N:Q:U" [...] --step "..." [...]`.
+   `--step` is optional but should never mention a quantity (steps are
+   shared across household sizes).
+6. If it errors, the message names the exact bad field (bad unit, malformed
+   `NAME:QTY:UNIT`, non-numeric quantity) — fix that one thing and re-run;
+   the file was never touched on failure, so there's nothing to undo.
+7. Confirm with `recipe show <slot> "<name>"`.
+
+### Update an existing recipe
+
+1. Resolve the recipe first with `recipe show <slot> <name-or-index>` if you
+   don't already have its exact name/index — don't guess.
+2. Decide what's actually changing:
+   - Renaming only → `--name`.
+   - Changing any ingredient → pass **every** ingredient via `--ingredient`,
+     not just the changed one; `update` replaces the whole list, it doesn't
+     patch a single entry. Start from the output of `recipe show` and edit
+     that.
+   - Changing steps → same rule, pass the full new steps list.
+3. Run `recipe update <slot> <name-or-index> [--name ...] [--ingredient ...] [--step ...]`.
+4. Confirm with `recipe show` again.
+
+### Delete a recipe
+
+1. Resolve it with `recipe list <slot>` or `recipe show` first if the user
+   gave a name that might not match exactly.
+2. Run `recipe remove <slot> <name-or-index>`.
+3. It fails if the recipe is the last one left in that slot (every slot
+   needs at least one) — if the goal is to replace it rather than have zero
+   recipes in that slot, add the replacement first (step 4 below).
+4. **To replace some or all recipes in a slot** (e.g. "swap out the dinner
+   recipes for X"): `add` every replacement recipe first, *then* `remove`
+   every recipe you're retiring, referencing each by its exact name (not
+   index — indices shift down after every `remove`, so a name is the only
+   reference that stays valid across the whole batch). This keeps the slot
+   non-empty at every intermediate step and makes each removal independently
+   safe to re-run if one fails partway through.
 
 ## Working from a natural-language request
 

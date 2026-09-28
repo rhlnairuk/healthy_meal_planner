@@ -163,6 +163,7 @@ python main.py recipe add dinners "Beans on toast" \
     --ingredient "Baked beans:120:g" --ingredient "Wholemeal bread:1:unit" \
     --step "Warm the beans in a small pan." --step "Toast the bread and spoon the beans over."
 python main.py recipe update dinners "Beans on toast" --step "New step 1." --step "New step 2."
+python main.py recipe remove dinners "Beans on toast"
 ```
 
 Notes:
@@ -174,8 +175,11 @@ Notes:
   `--step`, if given at all, replaces that whole list rather than merging
   with the old one (there's no way to tweak a single ingredient in place
   without re-listing all of them).
-- Both `show` and `update` accept either the recipe's exact name or its
-  index from `recipe list`.
+- `show`, `update`, and `remove` all accept either the recipe's exact name
+  or its index from `recipe list`.
+- `recipe remove` refuses to remove the last recipe in a slot - each meal
+  slot needs at least one. To fully replace a slot's recipes, `add` the
+  replacements first, then `remove` the old ones by name.
 
 Recipes live under [recipes/](recipes) - one JSON file per meal slot, if you
 prefer to hand-edit the JSON directly instead:

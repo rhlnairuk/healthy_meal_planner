@@ -16,6 +16,7 @@ Usage:
     python main.py recipe show dinners "Beans on toast"
     python main.py recipe add dinners "Beans on toast" --ingredient "Baked beans:120:g" --ingredient "Wholemeal bread:1:unit" --step "Warm the beans." --step "Toast the bread."
     python main.py recipe update dinners "Beans on toast" --step "Warm the beans in a small pan." --step "Toast the bread and spoon the beans over."
+    python main.py recipe remove dinners "Beans on toast"
 """
 
 import argparse
@@ -86,6 +87,10 @@ def parse_args() -> argparse.Namespace:
         "--step", action="append", metavar="STEP",
         help="Repeatable. If given at all, replaces the entire steps list (not merged with the old one).",
     )
+
+    recipe_remove_parser = recipe_subparsers.add_parser("remove", help="Remove a recipe from a meal slot (each slot must keep at least one).")
+    recipe_remove_parser.add_argument("slot", choices=meal_plan.MEAL_SLOTS)
+    recipe_remove_parser.add_argument("recipe", help="Recipe name or its index from 'recipe list'.")
 
     return parser.parse_args()
 
@@ -202,6 +207,16 @@ def handle_recipe(args: argparse.Namespace) -> None:
         raw[index] = recipe
         _write_slot_validated(args.slot, raw)
         print(f"Updated [{index}] {recipe['name']} in {args.slot}.")
+        return
+
+    if args.recipe_command == "remove":
+        raw = _load_raw_slot(args.slot)
+        index = _resolve_recipe_index(raw, args.recipe)
+        removed = raw.pop(index)
+        if not raw:
+            raise SystemExit(f"error: Can't remove the last recipe in {args.slot} - each meal slot needs at least one.")
+        _write_slot_validated(args.slot, raw)
+        print(f"Removed [{index}] {removed['name']} from {args.slot}.")
         return
 
 
