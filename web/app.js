@@ -469,12 +469,35 @@ async function loadLongLifeEditor() {
       <h4>${entry.name}</h4>
       <p class="note">Pack size: ${entry.pack_size}${entry.unit === "unit" ? "" : entry.unit}</p>
       <div class="row-actions">
+        <button class="secondary edit-btn">Edit</button>
         <button class="danger delete-btn">Delete</button>
       </div>
     `;
+    card.querySelector(".edit-btn").addEventListener("click", () => populateLongLifeForm(entry, index));
     card.querySelector(".delete-btn").addEventListener("click", () => deleteLongLife(index));
     container.appendChild(card);
   });
+}
+
+function resetLongLifeForm() {
+  const form = document.getElementById("long-life-form");
+  form.reset();
+  form.dataset.editIndex = "";
+  document.getElementById("long-life-form-title").textContent = "Add a pantry staple";
+  document.querySelector("#long-life-form button[type=submit]").textContent = "Save";
+  document.getElementById("ll-cancel-edit").hidden = true;
+}
+
+function populateLongLifeForm(entry, index) {
+  const form = document.getElementById("long-life-form");
+  form.dataset.editIndex = index;
+  document.getElementById("ll-name").value = entry.name;
+  document.getElementById("ll-unit").value = entry.unit;
+  document.getElementById("ll-pack-size").value = entry.pack_size;
+  document.getElementById("long-life-form-title").textContent = "Update pantry staple";
+  document.querySelector("#long-life-form button[type=submit]").textContent = "Update pantry staple";
+  document.getElementById("ll-cancel-edit").hidden = false;
+  window.scrollTo({ top: form.offsetTop - 20, behavior: "smooth" });
 }
 
 async function deleteLongLife(index) {
@@ -482,6 +505,7 @@ async function deleteLongLife(index) {
   try {
     await api(`/api/long-life/${index}`, { method: "DELETE" });
     setStatus("Removed.", "ok");
+    resetLongLifeForm(); // a pending edit index may now point at a different entry
     await loadLongLifeEditor();
     await loadPlan();
   } catch (e) {
@@ -490,21 +514,32 @@ async function deleteLongLife(index) {
 }
 
 function initLongLifeForm() {
+  document.getElementById("ll-cancel-edit").addEventListener("click", resetLongLifeForm);
   document.getElementById("long-life-form").addEventListener("submit", async (e) => {
     e.preventDefault();
+    const editIndex = e.target.dataset.editIndex;
     const payload = {
       name: document.getElementById("ll-name").value.trim(),
       unit: document.getElementById("ll-unit").value,
       pack_size: parseFloat(document.getElementById("ll-pack-size").value),
     };
     try {
-      await api("/api/long-life", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      setStatus("Pantry staple added.", "ok");
-      e.target.reset();
+      if (editIndex !== "" && editIndex !== undefined) {
+        await api(`/api/long-life/${editIndex}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        setStatus("Pantry staple updated.", "ok");
+      } else {
+        await api("/api/long-life", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        setStatus("Pantry staple added.", "ok");
+      }
+      resetLongLifeForm();
       await loadLongLifeEditor();
       await loadPlan();
     } catch (e2) {

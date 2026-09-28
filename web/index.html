@@ -84,7 +84,7 @@
     <h2>Pantry staples (long-life ingredients)</h2>
     <p class="note">Ingredients listed here are bought biweekly in bulk, rounded to their real pack size. Anything not listed here defaults to the weekly perishable list.</p>
     <div id="long-life-list"></div>
-    <h3>Add a pantry staple</h3>
+    <h3 id="long-life-form-title">Add a pantry staple</h3>
     <form id="long-life-form" class="editor-form">
       <label>Name <input type="text" id="ll-name" required></label>
       <label>Unit
@@ -96,6 +96,7 @@
       </label>
       <label>Pack size <input type="number" id="ll-pack-size" min="0.01" step="any" required></label>
       <button type="submit">Save</button>
+      <button type="button" id="ll-cancel-edit" class="secondary" hidden>Cancel</button>
     </form>
   </section>
 
