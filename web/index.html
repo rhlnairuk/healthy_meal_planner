@@ -14,6 +14,11 @@
     <label>Children <input type="number" id="children" min="0" value="1"></label>
     <label>Week <input type="number" id="week" min="1" max="53" placeholder="current"></label>
     <button id="apply-household">Apply</button>
+    <div class="week-nav">
+      <button type="button" id="week-prev" class="secondary">‹ Prev week</button>
+      <button type="button" id="week-current" class="secondary">This week</button>
+      <button type="button" id="week-next" class="secondary">Next week ›</button>
+    </div>
     <button id="reset-pantry" title="Forget tracked pantry surplus and start over">Reset pantry tracking</button>
   </div>
 </header>
@@ -55,7 +60,7 @@
   </section>
 
   <section id="tab-next-week" class="tab-panel">
-    <h2>Next week's menu preview</h2>
+    <h2 id="next-week-title">Next week's menu preview</h2>
     <h3>Menu <span class="note">(click a meal for its recipe)</span></h3>
     <div id="next-week-days" class="day-list"></div>
   </section>
