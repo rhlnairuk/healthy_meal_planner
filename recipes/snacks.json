@@ -1,142 +1,194 @@
 [
   {
-    "name": "Apple slices with almond butter",
+    "name": "Baked plantain chips",
     "ingredients": [
       {
-        "name": "Apple",
-        "quantity": 1,
-        "unit": "unit"
-      },
-      {
-        "name": "Almond butter",
-        "quantity": 10,
-        "unit": "g"
-      }
-    ],
-    "steps": [
-      "Slice the apple and serve with almond butter for dipping."
-    ]
-  },
-  {
-    "name": "Carrot sticks with hummus",
-    "ingredients": [
-      {
-        "name": "Carrots",
-        "quantity": 50,
+        "name": "Green banana (plantain)",
+        "quantity": 100.0,
         "unit": "g"
       },
       {
-        "name": "Hummus",
-        "quantity": 30,
-        "unit": "g"
+        "name": "Coconut oil",
+        "quantity": 5.0,
+        "unit": "ml"
       }
     ],
     "steps": [
-      "Cut the carrots into sticks and serve with hummus for dipping."
+      "Slice the plantain very thinly.",
+      "Toss with the coconut oil and a pinch of turmeric, then bake at 180C until crisp, turning once."
     ]
   },
   {
-    "name": "Greek yogurt pot",
+    "name": "Kerala-style roasted chickpeas",
     "ingredients": [
       {
-        "name": "Greek yogurt",
-        "quantity": 100,
+        "name": "Chickpeas",
+        "quantity": 90.0,
+        "unit": "g"
+      },
+      {
+        "name": "Olive oil",
+        "quantity": 3.0,
+        "unit": "ml"
+      },
+      {
+        "name": "Black pepper",
+        "quantity": 1.0,
         "unit": "g"
       }
     ],
     "steps": [
-      "Spoon yogurt into a pot and serve."
+      "Pat the cooked chickpeas dry and toss with the olive oil and black pepper.",
+      "Roast at 200C, shaking occasionally, until golden and crisp."
     ]
   },
   {
-    "name": "Banana oat bar",
+    "name": "Steamed banana with honey",
     "ingredients": [
       {
         "name": "Banana",
-        "quantity": 0.5,
+        "quantity": 1.0,
         "unit": "unit"
-      },
-      {
-        "name": "Porridge oats",
-        "quantity": 20,
-        "unit": "g"
       },
       {
         "name": "Honey",
-        "quantity": 5,
+        "quantity": 10.0,
         "unit": "g"
       }
     ],
     "steps": [
-      "Mash the banana and mix with the oats and honey.",
-      "Press into a small tray and bake at 180C for 15 minutes, then cool and cut into bars."
+      "Steam the peeled banana for 5 minutes until soft.",
+      "Slice and drizzle with the honey to serve."
     ]
   },
   {
-    "name": "Rice cakes with cream cheese",
+    "name": "Fruit and coconut chaat",
     "ingredients": [
       {
-        "name": "Rice cakes",
-        "quantity": 2,
-        "unit": "unit"
-      },
-      {
-        "name": "Cream cheese",
-        "quantity": 20,
-        "unit": "g"
-      }
-    ],
-    "steps": [
-      "Spread cream cheese over the rice cakes and serve."
-    ]
-  },
-  {
-    "name": "Mixed berries bowl",
-    "ingredients": [
-      {
-        "name": "Mixed berries",
-        "quantity": 60,
-        "unit": "g"
-      }
-    ],
-    "steps": [
-      "Rinse the berries and serve in a bowl."
-    ]
-  },
-  {
-    "name": "Cucumber sticks with tzatziki",
-    "ingredients": [
-      {
-        "name": "Cucumber",
-        "quantity": 50,
+        "name": "Mixed fruit",
+        "quantity": 120.0,
         "unit": "g"
       },
       {
-        "name": "Tzatziki",
-        "quantity": 30,
+        "name": "Desiccated coconut",
+        "quantity": 20.0,
         "unit": "g"
+      },
+      {
+        "name": "Lime juice",
+        "quantity": 5.0,
+        "unit": "ml"
       }
     ],
     "steps": [
-      "Cut the cucumber into sticks and serve with tzatziki for dipping."
+      "Dice the mixed fruit and toss with the lime juice.",
+      "Scatter the desiccated coconut over the top to serve."
     ]
   },
   {
-    "name": "Wholegrain crackers with cheese",
+    "name": "Spiced popcorn",
     "ingredients": [
       {
-        "name": "Wholegrain crackers",
-        "quantity": 4,
-        "unit": "unit"
+        "name": "Popcorn kernels",
+        "quantity": 30.0,
+        "unit": "g"
       },
       {
-        "name": "Cheddar cheese",
-        "quantity": 20,
+        "name": "Olive oil",
+        "quantity": 3.0,
+        "unit": "ml"
+      },
+      {
+        "name": "Chilli powder",
+        "quantity": 1.0,
         "unit": "g"
       }
     ],
     "steps": [
-      "Slice the cheese and serve on top of the crackers."
+      "Pop the popcorn kernels in the olive oil in a covered pan over a medium heat.",
+      "Toss with the chilli powder and a pinch of salt while still warm."
+    ]
+  },
+  {
+    "name": "Kothimbir vadi",
+    "ingredients": [
+      {
+        "name": "Besan (gram flour)",
+        "quantity": 60.0,
+        "unit": "g"
+      },
+      {
+        "name": "Coriander leaves",
+        "quantity": 20.0,
+        "unit": "g"
+      },
+      {
+        "name": "Cumin seeds",
+        "quantity": 2.0,
+        "unit": "g"
+      }
+    ],
+    "steps": [
+      "Mix the besan with the chopped coriander, cumin, and enough water to form a thick batter; steam in a shallow tin for 15 minutes.",
+      "Slice into pieces and lightly pan-fry until golden on both sides to serve."
+    ]
+  },
+  {
+    "name": "Bhel puri",
+    "ingredients": [
+      {
+        "name": "Puffed rice",
+        "quantity": 40.0,
+        "unit": "g"
+      },
+      {
+        "name": "Tomatoes",
+        "quantity": 40.0,
+        "unit": "g"
+      },
+      {
+        "name": "Onion",
+        "quantity": 30.0,
+        "unit": "g"
+      },
+      {
+        "name": "Tamarind paste",
+        "quantity": 10.0,
+        "unit": "g"
+      }
+    ],
+    "steps": [
+      "Toss the puffed rice with the diced tomatoes and onion.",
+      "Drizzle with the tamarind paste and toss again just before serving so the puffed rice stays crisp."
+    ]
+  },
+  {
+    "name": "Sprouted bean salad",
+    "ingredients": [
+      {
+        "name": "Sprouted bean mix",
+        "quantity": 90.0,
+        "unit": "g"
+      },
+      {
+        "name": "Tomatoes",
+        "quantity": 30.0,
+        "unit": "g"
+      },
+      {
+        "name": "Onion",
+        "quantity": 20.0,
+        "unit": "g"
+      },
+      {
+        "name": "Lime juice",
+        "quantity": 5.0,
+        "unit": "ml"
+      }
+    ],
+    "steps": [
+      "Toss the sprouted bean mix with the diced tomatoes and onion.",
+      "Season with lime juice, salt, and a pinch of chilli powder to serve."
     ]
   }
 ]

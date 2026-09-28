@@ -46,6 +46,21 @@ A run of `main.py` prints, in order:
    next. Only printed on the weeks it's due (even ISO week numbers); on
    off-weeks it prints a note that the pantry shop already covers you.
 
+### Ad-hoc items (one-offs not tied to any recipe)
+
+The web UI's "Extra Items" screen has a CLI equivalent for scripting or
+headless use:
+
+```bash
+python main.py adhoc list                          # this week's ad-hoc items
+python main.py adhoc add "Paper towels" 6 unit      # literal quantity, not scaled by household size
+python main.py adhoc remove 0                       # remove by the index shown in 'list'
+python main.py adhoc list --week 32                 # any of the three accept --week
+```
+
+These are stored in `adhoc_items.json`, keyed by ISO week, same as the web
+UI - either interface sees the other's edits.
+
 ### Getting the same menu every week (or a fresh one on demand)
 
 The menu is derived from the ISO week number, so:
@@ -135,7 +150,39 @@ docker run --rm -v "$(pwd):/app" healthy-meal-planner python3 main.py --week 32
 
 ## Adding a new recipe
 
-Recipes live under [recipes/](recipes) - one JSON file per meal slot:
+The web UI's "Recipes" screen has a CLI equivalent for scripting or headless
+use - it validates the same way `main.py` does at startup, so an invalid
+edit is rejected with the exact error and the file on disk is left
+untouched:
+
+```bash
+python main.py recipe list                     # every slot, name + ingredient count
+python main.py recipe list dinners              # one slot only
+python main.py recipe show dinners "Beans on toast"   # or by index: recipe show dinners 3
+python main.py recipe add dinners "Beans on toast" \
+    --ingredient "Baked beans:120:g" --ingredient "Wholemeal bread:1:unit" \
+    --step "Warm the beans in a small pan." --step "Toast the bread and spoon the beans over."
+python main.py recipe update dinners "Beans on toast" --step "New step 1." --step "New step 2."
+python main.py recipe remove dinners "Beans on toast"
+```
+
+Notes:
+
+- `--ingredient` takes `NAME:QUANTITY:UNIT` (quantity is per one adult
+  portion, unit is `g`/`ml`/`unit`) and is repeatable - pass it once per
+  ingredient.
+- `recipe update` only changes the fields you pass; `--ingredient` or
+  `--step`, if given at all, replaces that whole list rather than merging
+  with the old one (there's no way to tweak a single ingredient in place
+  without re-listing all of them).
+- `show`, `update`, and `remove` all accept either the recipe's exact name
+  or its index from `recipe list`.
+- `recipe remove` refuses to remove the last recipe in a slot - each meal
+  slot needs at least one. To fully replace a slot's recipes, `add` the
+  replacements first, then `remove` the old ones by name.
+
+Recipes live under [recipes/](recipes) - one JSON file per meal slot, if you
+prefer to hand-edit the JSON directly instead:
 
 ```
 recipes/

@@ -62,33 +62,77 @@ function initTabs() {
 
 // ---- plan view ----
 
-function renderDays(containerId, days) {
+const MEAL_SLOTS_LABELS = [["Breakfast", "breakfast"], ["Lunch", "lunch"], ["Dinner", "dinner"], ["Snack", "snack"]];
+
+function renderDays(containerId, days, recipeLookup) {
   const container = document.getElementById(containerId);
   container.innerHTML = "";
   for (const day of days) {
     const card = document.createElement("div");
     card.className = "day-card";
-    card.innerHTML = `
-      <div class="day-name">${day.day}</div>
-      <div class="meal-row"><b>Breakfast:</b> ${day.breakfast}</div>
-      <div class="meal-row"><b>Lunch:</b> ${day.lunch}</div>
-      <div class="meal-row"><b>Dinner:</b> ${day.dinner}</div>
-      <div class="meal-row"><b>Snack:</b> ${day.snack}</div>
-    `;
+
+    const name = document.createElement("div");
+    name.className = "day-name";
+    name.textContent = day.day;
+    card.appendChild(name);
+
+    for (const [label, key] of MEAL_SLOTS_LABELS) {
+      const row = document.createElement("div");
+      row.className = "meal-row";
+
+      const b = document.createElement("b");
+      b.textContent = label + ": ";
+      row.appendChild(b);
+
+      const link = document.createElement("button");
+      link.type = "button";
+      link.className = "meal-link";
+      link.textContent = day[key];
+      link.addEventListener("click", () => openRecipeModal(recipeLookup[day[key]]));
+      row.appendChild(link);
+
+      card.appendChild(row);
+    }
     container.appendChild(card);
   }
 }
 
-function renderRecipeSummaries(containerId, recipes) {
-  const container = document.getElementById(containerId);
-  container.innerHTML = "";
-  for (const recipe of recipes) {
-    const card = document.createElement("div");
-    card.className = "recipe-card";
-    const steps = recipe.steps.map((s) => `<li>${s}</li>`).join("");
-    card.innerHTML = `<h4>${recipe.name}</h4>${steps ? `<ol>${steps}</ol>` : `<p class="note">No steps recorded.</p>`}`;
-    container.appendChild(card);
-  }
+function recipesByName(recipes) {
+  const map = {};
+  for (const recipe of recipes) map[recipe.name] = recipe;
+  return map;
+}
+
+function formatIngredient(ing) {
+  return ing.unit === "unit" ? `${ing.quantity} x ${ing.name}` : `${ing.quantity}${ing.unit} ${ing.name}`;
+}
+
+function openRecipeModal(recipe) {
+  const title = document.getElementById("recipe-modal-title");
+  const ingredientsEl = document.getElementById("recipe-modal-ingredients");
+  const stepsEl = document.getElementById("recipe-modal-steps");
+
+  title.textContent = recipe ? recipe.name : "Recipe not found";
+  ingredientsEl.innerHTML = recipe && recipe.ingredients.length
+    ? recipe.ingredients.map((i) => `<li>${formatIngredient(i)}</li>`).join("")
+    : `<li class="note">No ingredients recorded.</li>`;
+  stepsEl.innerHTML = recipe && recipe.steps.length
+    ? recipe.steps.map((s) => `<li>${s}</li>`).join("")
+    : `<li class="note">No steps recorded.</li>`;
+
+  document.getElementById("recipe-modal").classList.remove("hidden");
+}
+
+function closeRecipeModal() {
+  document.getElementById("recipe-modal").classList.add("hidden");
+}
+
+function initRecipeModal() {
+  document.getElementById("recipe-modal-close").addEventListener("click", closeRecipeModal);
+  document.querySelector("#recipe-modal .modal-backdrop").addEventListener("click", closeRecipeModal);
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeRecipeModal();
+  });
 }
 
 function renderItemList(containerId, items, opts) {
@@ -125,8 +169,7 @@ async function loadPlan() {
   document.getElementById("household-summary").textContent =
     `Week ${data.week_number} - ${data.household.description}`;
 
-  renderDays("this-week-days", data.this_week.days);
-  renderRecipeSummaries("this-week-recipes", data.this_week.recipes);
+  renderDays("this-week-days", data.this_week.days, recipesByName(data.this_week.recipes));
   renderItemList("weekly-grocery", data.this_week.weekly_grocery, { emptyMessage: "(nothing needed)" });
   renderItemList("this-week-adhoc", data.this_week.adhoc, {
     emptyMessage: "(none added)",
@@ -148,8 +191,7 @@ async function loadPlan() {
     biweeklyNote.textContent = "Not due this week - covered by last week's biweekly shop.";
   }
 
-  renderDays("next-week-days", data.next_week.days);
-  renderRecipeSummaries("next-week-recipes", data.next_week.recipes);
+  renderDays("next-week-days", data.next_week.days, recipesByName(data.next_week.recipes));
 
   await loadAdhocEditorList(data.week_number);
 }
@@ -435,6 +477,7 @@ async function init() {
   initRecipeForm();
   initLongLifeForm();
   initAdhocForm();
+  initRecipeModal();
   try {
     await loadPlan();
     await loadRecipeEditor();

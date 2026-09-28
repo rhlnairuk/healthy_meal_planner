@@ -31,16 +31,8 @@
 
   <section id="tab-this-week" class="tab-panel active">
     <h2 id="household-summary"></h2>
-    <div class="grid two-col">
-      <div>
-        <h3>Menu</h3>
-        <div id="this-week-days" class="day-list"></div>
-      </div>
-      <div>
-        <h3>Recipes</h3>
-        <div id="this-week-recipes" class="recipe-list"></div>
-      </div>
-    </div>
+    <h3>Menu <span class="note">(click a meal for its recipe)</span></h3>
+    <div id="this-week-days" class="day-list"></div>
     <div class="grid two-col">
       <div>
         <h3>Weekly grocery list (perishables)</h3>
@@ -60,16 +52,8 @@
 
   <section id="tab-next-week" class="tab-panel">
     <h2>Next week's menu preview</h2>
-    <div class="grid two-col">
-      <div>
-        <h3>Menu</h3>
-        <div id="next-week-days" class="day-list"></div>
-      </div>
-      <div>
-        <h3>Recipes</h3>
-        <div id="next-week-recipes" class="recipe-list"></div>
-      </div>
-    </div>
+    <h3>Menu <span class="note">(click a meal for its recipe)</span></h3>
+    <div id="next-week-days" class="day-list"></div>
   </section>
 
   <section id="tab-recipes" class="tab-panel">
@@ -128,6 +112,18 @@
       <button type="submit">Add</button>
     </form>
   </section>
+
+  <div id="recipe-modal" class="modal hidden">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <button type="button" id="recipe-modal-close" class="secondary modal-close">&times;</button>
+      <h3 id="recipe-modal-title"></h3>
+      <h4>Ingredients <span class="note">(per adult portion)</span></h4>
+      <ul id="recipe-modal-ingredients" class="modal-list"></ul>
+      <h4>Steps</h4>
+      <ol id="recipe-modal-steps" class="modal-list"></ol>
+    </div>
+  </div>
 </main>
 
 <script src="/app.js"></script>

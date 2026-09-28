@@ -1,225 +1,243 @@
 [
   {
-    "name": "Porridge with blueberries",
+    "name": "Moong dal chilla with coconut chutney",
     "ingredients": [
       {
-        "name": "Porridge oats",
-        "quantity": 40,
+        "name": "Yellow moong dal",
+        "quantity": 70.0,
         "unit": "g"
       },
       {
-        "name": "Semi-skimmed milk",
-        "quantity": 150,
+        "name": "Onion",
+        "quantity": 30.0,
+        "unit": "g"
+      },
+      {
+        "name": "Tomatoes",
+        "quantity": 30.0,
+        "unit": "g"
+      },
+      {
+        "name": "Desiccated coconut",
+        "quantity": 20.0,
+        "unit": "g"
+      }
+    ],
+    "steps": [
+      "Soak the moong dal for a couple of hours, then blend with water into a thick batter.",
+      "Stir the chopped onion and tomato through the batter.",
+      "Pour a ladleful onto a hot griddle, spread thin, and cook both sides until golden.",
+      "Blend the desiccated coconut with a little yoghurt and green chilli for the chutney, and serve alongside."
+    ]
+  },
+  {
+    "name": "Kerala-style vegetable stew with brown rice",
+    "ingredients": [
+      {
+        "name": "Brown rice",
+        "quantity": 75.0,
+        "unit": "g"
+      },
+      {
+        "name": "Mixed vegetables",
+        "quantity": 120.0,
+        "unit": "g"
+      },
+      {
+        "name": "Coconut milk",
+        "quantity": 100.0,
         "unit": "ml"
       },
       {
-        "name": "Blueberries",
-        "quantity": 40,
-        "unit": "g"
-      },
-      {
-        "name": "Honey",
-        "quantity": 5,
+        "name": "Curry leaves",
+        "quantity": 2.0,
         "unit": "g"
       }
     ],
     "steps": [
-      "Simmer oats and milk together for 4-5 minutes, stirring often, until thick and creamy.",
-      "Spoon into bowls and top with blueberries.",
-      "Drizzle with honey to serve."
+      "Simmer the mixed vegetables in a little water until just tender.",
+      "Stir in the coconut milk and curry leaves, and warm through gently without boiling.",
+      "Serve the stew hot with the cooked brown rice."
     ]
   },
   {
-    "name": "Scrambled eggs on wholemeal toast",
+    "name": "Puttu with chickpea curry",
     "ingredients": [
       {
-        "name": "Free-range eggs",
-        "quantity": 1.5,
-        "unit": "unit"
-      },
-      {
-        "name": "Wholemeal bread",
-        "quantity": 1,
-        "unit": "unit"
-      },
-      {
-        "name": "Butter",
-        "quantity": 5,
+        "name": "Rice flour",
+        "quantity": 80.0,
         "unit": "g"
       },
       {
-        "name": "Cherry tomatoes",
-        "quantity": 40,
-        "unit": "g"
-      }
-    ],
-    "steps": [
-      "Whisk the eggs with a splash of milk.",
-      "Melt butter in a non-stick pan over low heat and add the eggs, stirring gently until just set.",
-      "Toast the bread and serve the eggs on top with halved cherry tomatoes on the side."
-    ]
-  },
-  {
-    "name": "Greek yogurt with granola and fruit",
-    "ingredients": [
-      {
-        "name": "Greek yogurt",
-        "quantity": 120,
+        "name": "Desiccated coconut",
+        "quantity": 30.0,
         "unit": "g"
       },
       {
-        "name": "Granola",
-        "quantity": 30,
+        "name": "Chickpeas",
+        "quantity": 70.0,
         "unit": "g"
       },
       {
-        "name": "Banana",
-        "quantity": 0.5,
-        "unit": "unit"
-      }
-    ],
-    "steps": [
-      "Spoon yogurt into a bowl.",
-      "Slice the banana and scatter over with the granola."
-    ]
-  },
-  {
-    "name": "Overnight oats with berries",
-    "ingredients": [
-      {
-        "name": "Porridge oats",
-        "quantity": 40,
-        "unit": "g"
-      },
-      {
-        "name": "Semi-skimmed milk",
-        "quantity": 120,
-        "unit": "ml"
-      },
-      {
-        "name": "Mixed berries",
-        "quantity": 40,
-        "unit": "g"
-      },
-      {
-        "name": "Greek yogurt",
-        "quantity": 40,
+        "name": "Onion",
+        "quantity": 30.0,
         "unit": "g"
       }
     ],
     "steps": [
-      "The night before, stir oats, milk and yogurt together in a jar or container.",
-      "Cover and refrigerate overnight.",
-      "Top with mixed berries in the morning before serving."
+      "Layer the rice flour and desiccated coconut in a steamer and steam for 10 minutes.",
+      "Simmer the chickpeas with the onion and spices until soft for the curry.",
+      "Turn the puttu out onto a plate and serve with the chickpea curry."
     ]
   },
   {
-    "name": "Wholemeal pancakes with banana",
+    "name": "Wholemeal vegetable dosa with tomato chutney",
     "ingredients": [
       {
         "name": "Wholemeal flour",
-        "quantity": 40,
+        "quantity": 70.0,
         "unit": "g"
       },
       {
-        "name": "Free-range eggs",
-        "quantity": 0.5,
-        "unit": "unit"
-      },
-      {
-        "name": "Semi-skimmed milk",
-        "quantity": 80,
-        "unit": "ml"
-      },
-      {
-        "name": "Banana",
-        "quantity": 0.5,
-        "unit": "unit"
-      }
-    ],
-    "steps": [
-      "Whisk flour, egg and milk together into a smooth batter.",
-      "Pour small rounds into a lightly greased hot pan and cook 1-2 minutes per side until golden.",
-      "Serve topped with sliced banana."
-    ]
-  },
-  {
-    "name": "Avocado and poached egg on toast",
-    "ingredients": [
-      {
-        "name": "Wholemeal bread",
-        "quantity": 1,
-        "unit": "unit"
-      },
-      {
-        "name": "Avocado",
-        "quantity": 0.5,
-        "unit": "unit"
-      },
-      {
-        "name": "Free-range eggs",
-        "quantity": 1,
-        "unit": "unit"
-      }
-    ],
-    "steps": [
-      "Toast the bread and mash the avocado on top with a little salt and pepper.",
-      "Simmer water in a pan, swirl, and crack in the egg; poach 3 minutes until white is set.",
-      "Lift out with a slotted spoon and place on the avocado toast."
-    ]
-  },
-  {
-    "name": "Fruit and seed muesli with milk",
-    "ingredients": [
-      {
-        "name": "Muesli",
-        "quantity": 40,
+        "name": "Semolina",
+        "quantity": 20.0,
         "unit": "g"
       },
       {
-        "name": "Semi-skimmed milk",
-        "quantity": 150,
-        "unit": "ml"
+        "name": "Tomatoes",
+        "quantity": 100.0,
+        "unit": "g"
       },
       {
-        "name": "Apple",
-        "quantity": 0.5,
-        "unit": "unit"
-      }
-    ],
-    "steps": [
-      "Pour muesli into a bowl and add the milk.",
-      "Grate or dice the apple and stir through before serving."
-    ]
-  },
-  {
-    "name": "French toast with berries",
-    "ingredients": [
-      {
-        "name": "Wholemeal bread",
-        "quantity": 1,
-        "unit": "unit"
-      },
-      {
-        "name": "Free-range eggs",
-        "quantity": 0.5,
-        "unit": "unit"
-      },
-      {
-        "name": "Semi-skimmed milk",
-        "quantity": 30,
-        "unit": "ml"
-      },
-      {
-        "name": "Mixed berries",
-        "quantity": 40,
+        "name": "Onion",
+        "quantity": 20.0,
         "unit": "g"
       }
     ],
     "steps": [
-      "Whisk egg and milk together in a shallow dish.",
-      "Dip the bread in the mixture, coating both sides.",
-      "Fry in a lightly greased pan for 2 minutes per side until golden, then top with berries."
+      "Whisk the wholemeal flour and semolina with water into a thin batter and rest for 10 minutes.",
+      "Pour a ladleful onto a hot griddle and spread thin; cook until crisp at the edges.",
+      "Blend the tomatoes and onion with a little oil and mustard seeds for the chutney, and serve alongside."
+    ]
+  },
+  {
+    "name": "Maharashtrian poha with peanuts and peas",
+    "ingredients": [
+      {
+        "name": "Poha (flattened rice)",
+        "quantity": 70.0,
+        "unit": "g"
+      },
+      {
+        "name": "Roasted peanuts, crushed",
+        "quantity": 20.0,
+        "unit": "g"
+      },
+      {
+        "name": "Onion",
+        "quantity": 40.0,
+        "unit": "g"
+      },
+      {
+        "name": "Green peas",
+        "quantity": 40.0,
+        "unit": "g"
+      }
+    ],
+    "steps": [
+      "Rinse the poha briefly in a sieve until softened, then drain well.",
+      "Fry the onion and peas with mustard seeds and curry leaves until soft.",
+      "Add the poha and crushed peanuts, toss gently to warm through, and finish with a squeeze of lemon."
+    ]
+  },
+  {
+    "name": "Oat upma with vegetables and peanuts",
+    "ingredients": [
+      {
+        "name": "Rolled oats",
+        "quantity": 70.0,
+        "unit": "g"
+      },
+      {
+        "name": "Mixed vegetables",
+        "quantity": 90.0,
+        "unit": "g"
+      },
+      {
+        "name": "Onion",
+        "quantity": 30.0,
+        "unit": "g"
+      },
+      {
+        "name": "Roasted peanuts, crushed",
+        "quantity": 15.0,
+        "unit": "g"
+      }
+    ],
+    "steps": [
+      "Dry-roast the rolled oats until lightly toasted and set aside.",
+      "Fry the onion and mixed vegetables with mustard seeds and curry leaves until soft.",
+      "Stir in the oats and enough hot water, then cook covered until fluffy; finish with the crushed peanuts."
+    ]
+  },
+  {
+    "name": "Thalipeeth with yoghurt",
+    "ingredients": [
+      {
+        "name": "Besan (gram flour)",
+        "quantity": 50.0,
+        "unit": "g"
+      },
+      {
+        "name": "Wholemeal flour",
+        "quantity": 40.0,
+        "unit": "g"
+      },
+      {
+        "name": "Onion",
+        "quantity": 30.0,
+        "unit": "g"
+      },
+      {
+        "name": "Low-fat natural yoghurt",
+        "quantity": 120.0,
+        "unit": "g"
+      }
+    ],
+    "steps": [
+      "Mix the besan and wholemeal flour with the onion and enough water to form a soft dough.",
+      "Pat the dough thin directly onto a hot griddle and cook both sides until golden.",
+      "Serve hot with the yoghurt on the side."
+    ]
+  },
+  {
+    "name": "Rava vegetable upma with peanuts",
+    "ingredients": [
+      {
+        "name": "Semolina",
+        "quantity": 70.0,
+        "unit": "g"
+      },
+      {
+        "name": "Mixed vegetables",
+        "quantity": 90.0,
+        "unit": "g"
+      },
+      {
+        "name": "Onion",
+        "quantity": 30.0,
+        "unit": "g"
+      },
+      {
+        "name": "Roasted peanuts, crushed",
+        "quantity": 15.0,
+        "unit": "g"
+      }
+    ],
+    "steps": [
+      "Dry-roast the semolina until lightly golden and set aside.",
+      "Fry the onion and mixed vegetables with mustard seeds and curry leaves until soft.",
+      "Stir in the semolina and enough hot water, then cook covered until fluffy; finish with the crushed peanuts."
     ]
   }
 ]

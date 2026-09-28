@@ -110,7 +110,11 @@ def _day_summary(day) -> dict:
 
 
 def _recipe_detail(recipe) -> dict:
-    return {"name": recipe.name, "steps": list(recipe.steps)}
+    return {
+        "name": recipe.name,
+        "ingredients": [asdict(i) for i in recipe.ingredients],
+        "steps": list(recipe.steps),
+    }
 
 
 def build_week_preview(week_number: int) -> dict:
