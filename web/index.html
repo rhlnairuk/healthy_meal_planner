@@ -8,18 +8,20 @@
 </head>
 <body>
 <header class="topbar">
-  <h1>Healthy Meal Planner</h1>
+  <h1 class="brand"><span class="brand-mark" aria-hidden="true">🌿</span>Healthy Meal Planner</h1>
   <div class="household-controls">
-    <label>Adults <input type="number" id="adults" min="1" value="2"></label>
-    <label>Children <input type="number" id="children" min="0" value="1"></label>
-    <label>Week <input type="number" id="week" min="1" max="53" placeholder="current"></label>
-    <button id="apply-household">Apply</button>
-    <div class="week-nav">
+    <div class="control-cluster household-inputs">
+      <label>Adults <input type="number" id="adults" min="1" value="2"></label>
+      <label>Children <input type="number" id="children" min="0" value="1"></label>
+      <label>Week <input type="number" id="week" min="1" max="53" placeholder="current"></label>
+      <button id="apply-household">Apply</button>
+    </div>
+    <div class="week-nav" role="group" aria-label="Week navigation">
       <button type="button" id="week-prev" class="secondary">‹ Prev week</button>
       <button type="button" id="week-current" class="secondary">This week</button>
       <button type="button" id="week-next" class="secondary">Next week ›</button>
     </div>
-    <button id="reset-pantry" title="Forget tracked pantry surplus and start over">Reset pantry tracking</button>
+    <button id="reset-pantry" class="ghost" title="Forget tracked pantry surplus and start over">Reset pantry tracking</button>
   </div>
 </header>
 
