@@ -80,9 +80,9 @@
     <form id="recipe-form" class="editor-form">
       <label>Name <input type="text" id="recipe-name" required></label>
       <div id="recipe-ingredients"></div>
-      <button type="button" id="add-ingredient-row">+ ingredient</button>
+      <button type="button" id="add-ingredient-row" class="add-row">+ ingredient</button>
       <div id="recipe-steps"></div>
-      <button type="button" id="add-step-row">+ step</button>
+      <button type="button" id="add-step-row" class="add-row">+ step</button>
       <button type="submit">Save recipe</button>
     </form>
   </section>
@@ -128,7 +128,7 @@
   <div id="recipe-modal" class="modal hidden">
     <div class="modal-backdrop"></div>
     <div class="modal-content">
-      <button type="button" id="recipe-modal-close" class="secondary modal-close">&times;</button>
+      <button type="button" id="recipe-modal-close" class="secondary modal-close" aria-label="Close">&times;</button>
       <h3 id="recipe-modal-title"></h3>
       <h4>Ingredients <span class="note">(per adult portion)</span></h4>
       <ul id="recipe-modal-ingredients" class="modal-list"></ul>
