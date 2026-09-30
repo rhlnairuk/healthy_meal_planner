@@ -95,7 +95,9 @@ h3 {
 
 /* Keyboard focus ring for every interactive element; mouse clicks don't trigger :focus-visible on buttons. */
 :focus-visible {
-  outline: none;
+  /* transparent, not none: forced-colors mode drops box-shadow and paints the outline instead */
+  outline: 2px solid transparent;
+  outline-offset: 2px;
   box-shadow: var(--focus-ring);
 }
 
@@ -271,6 +273,7 @@ main { padding: var(--space-5); max-width: 68.75rem; margin: 0 auto; }
 
 @media (max-width: 700px) {
   .topbar {
+    position: static; /* stacked header is too tall to pin */
     flex-direction: column;
     align-items: stretch;
     gap: var(--space-3);

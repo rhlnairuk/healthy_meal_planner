@@ -372,6 +372,13 @@ function resetRecipeForm() {
   document.querySelector("#recipe-form button[type=submit]").textContent = "Save recipe";
 }
 
+// Scroll a form to the top of the viewport, clearing the header when it is pinned (it is static at <=700px).
+function scrollToForm(form) {
+  const topbar = document.querySelector(".topbar");
+  const pinned = getComputedStyle(topbar).position === "sticky" ? topbar.offsetHeight : 0;
+  window.scrollTo({ top: form.offsetTop - pinned - 20, behavior: "smooth" });
+}
+
 function populateRecipeForm(recipe, index) {
   document.getElementById("recipe-form").dataset.editIndex = index;
   document.getElementById("recipe-name").value = recipe.name;
@@ -384,7 +391,7 @@ function populateRecipeForm(recipe, index) {
   (recipe.steps || []).forEach((s) => steps.appendChild(stepRow(s)));
   if (!recipe.steps || !recipe.steps.length) steps.appendChild(stepRow());
   document.querySelector("#recipe-form button[type=submit]").textContent = "Update recipe";
-  window.scrollTo({ top: document.getElementById("recipe-form").offsetTop - 20, behavior: "smooth" });
+  scrollToForm(document.getElementById("recipe-form"));
 }
 
 async function loadRecipeEditor() {
@@ -512,7 +519,7 @@ function populateLongLifeForm(entry, index) {
   document.getElementById("long-life-form-title").textContent = "Update pantry staple";
   document.querySelector("#long-life-form button[type=submit]").textContent = "Update pantry staple";
   document.getElementById("ll-cancel-edit").hidden = false;
-  window.scrollTo({ top: form.offsetTop - 20, behavior: "smooth" });
+  scrollToForm(form);
 }
 
 async function deleteLongLife(index) {
