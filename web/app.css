@@ -230,7 +230,8 @@ button {
               border-color var(--duration-fast) var(--ease-standard),
               transform var(--duration-fast) var(--ease-standard);
 }
-button:hover { background: var(--color-primary-hover); }
+/* :where() keeps specificity unchanged while stopping disabled buttons reacting to hover */
+button:hover:where(:not(:disabled)) { background: var(--color-primary-hover); }
 button:active { transform: translateY(1px); }
 button:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
 
@@ -239,21 +240,21 @@ button.secondary {
   color: var(--color-text);
   border-color: var(--color-border-strong);
 }
-button.secondary:hover { background: var(--color-surface-sunken); }
+button.secondary:hover:where(:not(:disabled)) { background: var(--color-surface-sunken); }
 
 button.danger {
   background: transparent;
   color: var(--color-danger);
   border-color: var(--color-danger);
 }
-button.danger:hover { background: var(--color-danger-soft); }
+button.danger:hover:where(:not(:disabled)) { background: var(--color-danger-soft); }
 
 button.add-row {
   align-self: flex-start;
   background: transparent;
   color: var(--color-primary);
 }
-button.add-row:hover { background: var(--color-primary-soft); }
+button.add-row:hover:where(:not(:disabled)) { background: var(--color-primary-soft); }
 
 /* Link-style and compact list buttons opt out of the base button's size and states */
 button.meal-link { min-height: 0; }
@@ -338,13 +339,6 @@ main { padding: var(--space-5); max-width: 68.75rem; margin: 0 auto; }
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-}
-
-.recipe-card, .editor-card {
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 0.6rem 0.8rem;
 }
 
 /* ---- Menu: day cards ---- */
@@ -640,6 +634,9 @@ ol.modal-list li + li { margin-top: var(--space-2); }
   border-color: var(--color-focus);
   box-shadow: var(--focus-ring);
 }
+/* Row inputs have no <label>, so the placeholder must meet AA on the sunken fill; opacity cancels Firefox's default */
+.editor-form input::placeholder,
+.editor-card input::placeholder { color: var(--color-text-muted); opacity: 1; }
 
 /* Buttons keep their natural width; the submit sits at the end, left-aligned */
 .editor-form button { align-self: flex-start; }
@@ -686,3 +683,5 @@ ol.modal-list li + li { margin-top: var(--space-2); }
 }
 .status.error { background: var(--color-danger-soft); color: var(--color-danger); }
 .status.ok { background: var(--color-primary-soft); color: var(--color-primary); }
+/* setStatus() clears the text but leaves the class; keep the emptied banner invisible */
+.status:empty { padding: 0; background: none; }
