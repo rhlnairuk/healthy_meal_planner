@@ -295,53 +295,103 @@ main { padding: var(--space-5); max-width: 68.75rem; margin: 0 auto; }
 .grid.two-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
+  gap: var(--space-5);
+  margin-bottom: var(--space-5);
 }
 @media (max-width: 700px) {
   .grid.two-col { grid-template-columns: 1fr; }
 }
 
-.day-list, .recipe-list, #recipe-editor-list, #long-life-list {
+.recipe-list, #recipe-editor-list, #long-life-list {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-.day-card, .recipe-card, .editor-card {
+.recipe-card, .editor-card {
   background: var(--panel);
   border: 1px solid var(--border);
   border-radius: 6px;
   padding: 0.6rem 0.8rem;
 }
 
-.day-card .day-name { font-weight: 600; margin-bottom: 0.25rem; }
-.day-card.today { border-color: var(--accent); box-shadow: inset 3px 0 0 var(--accent); }
-.today-badge {
-  margin-left: 0.5rem;
-  padding: 0.05rem 0.4rem;
-  border-radius: 999px;
-  background: var(--accent);
-  color: var(--accent-text);
-  font-size: 0.7rem;
-  font-weight: 500;
-  vertical-align: middle;
+/* ---- Menu: day cards ---- */
+
+.day-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: var(--space-3);
 }
-.day-card .meal-row { font-size: 0.9rem; color: var(--muted); }
-.day-card .meal-row b { color: var(--text); font-weight: 500; }
+@media (max-width: 700px) {
+  .day-list { grid-template-columns: 1fr; }
+}
+
+.day-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-1);
+  padding: var(--space-4);
+}
+.day-card .day-name {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+}
+.day-card.today {
+  background: var(--color-primary-soft);
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-2);
+}
+.today-badge {
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-pill);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+}
+
+/* One meal per line: muted slot label (the <b>) in a fixed column, then the meal name */
+.day-card .meal-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  padding: var(--space-1) 0;
+  font-size: var(--text-sm);
+  line-height: var(--leading-tight);
+}
+.day-card .meal-row b {
+  flex: none;
+  min-width: 4.5rem;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-muted);
+}
 
 .meal-link {
   background: none;
   border: none;
+  border-radius: var(--radius-sm);
   padding: 0;
   margin: 0;
-  color: var(--accent);
+  color: var(--color-text);
   font: inherit;
-  font-size: inherit;
-  text-decoration: underline;
+  font-size: var(--text-sm);
+  text-align: left;
+  text-decoration: none;
   cursor: pointer;
+  transition: color var(--duration-fast) var(--ease-standard);
 }
-.meal-link:hover { text-decoration: none; }
+.meal-link:hover { color: var(--color-primary); text-decoration: underline; }
+.meal-link:focus-visible { box-shadow: var(--focus-ring); }
 
 .recipe-card h4 { margin: 0 0 0.4rem; }
 .recipe-card ol { margin: 0; padding-left: 1.2rem; font-size: 0.9rem; }
@@ -383,23 +433,88 @@ main { padding: var(--space-5); max-width: 68.75rem; margin: 0 auto; }
 }
 .modal-list { margin: 0 0 1rem; padding-left: 1.2rem; font-size: 0.9rem; }
 
-.item-list { list-style: none; padding: 0; margin: 0; }
+/* ---- Grocery lists: one surface panel per list ---- */
+
+.item-list {
+  list-style: none;
+  margin: 0;
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-1);
+}
 .item-list li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.35rem 0.1rem;
-  border-bottom: 1px solid var(--border);
-  font-size: 0.92rem;
+  gap: var(--space-2);
+  min-height: 2.75rem; /* 44px touch target */
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: var(--text-sm);
+  transition: background-color var(--duration-fast) var(--ease-standard);
 }
-.item-list li button { padding: 0.15rem 0.5rem; font-size: 0.75rem; }
-.item-list .item-label { display: flex; align-items: center; gap: 0.5rem; flex: 1; cursor: pointer; }
-.item-list .item-label input { accent-color: var(--accent); margin: 0; }
-.item-list li.checked .item-label span { text-decoration: line-through; color: var(--muted); }
+.item-list li:last-child { border-bottom: none; }
+.item-list li:hover { background: var(--color-surface-sunken); }
+.item-list .item-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex: 1;
+  align-self: stretch;
+  cursor: pointer;
+}
+.item-list .item-label input {
+  flex: none;
+  width: 1.125rem;
+  height: 1.125rem;
+  margin: 0;
+  accent-color: var(--color-primary);
+}
+.item-list li.checked .item-label span {
+  text-decoration: line-through;
+  color: var(--color-text-muted);
+  opacity: 0.7;
+}
+/* Row-level actions (Remove): small ghost buttons */
+.item-list li button {
+  flex: none;
+  background: transparent;
+  color: var(--color-text-muted);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  padding: var(--space-1) var(--space-2);
+  font-size: var(--text-xs);
+  transition: color var(--duration-fast) var(--ease-standard),
+              border-color var(--duration-fast) var(--ease-standard);
+}
+.item-list li button:hover { color: var(--color-danger); border-color: var(--color-border-strong); }
+.item-list li button:active { background: var(--color-danger-soft); }
 
-.list-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 0.25rem; }
+.list-actions { display: flex; flex-wrap: wrap; gap: var(--space-2); margin: var(--space-4) 0 var(--space-1); }
+.list-actions button {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  transition: background-color var(--duration-fast) var(--ease-standard);
+}
+.list-actions button:hover { background: var(--color-primary-hover); }
+.list-actions button.secondary {
+  background: transparent;
+  color: var(--color-text);
+  border-color: var(--color-border-strong);
+}
+.list-actions button.secondary:hover { background: var(--color-surface-sunken); }
+.list-actions button.secondary:active { background: var(--color-primary-soft); }
+@media (max-width: 700px) {
+  .list-actions button { min-height: 2.5rem; }
+}
 
-.note { color: var(--muted); font-size: 0.85rem; }
+.note { color: var(--color-text-muted); font-size: var(--text-sm); }
 
 .editor-form, .editor-card {
   background: var(--panel);
